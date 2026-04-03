@@ -1,0 +1,1242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Empire Fine Jewellers — Wilmslow | Luxury Jewellery & Pre-Owned Watches</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--black:#0D0D0D;--ivory:#F5F3EF;--gold:#C6A96B;--gold2:#d9c08e;--grey:#7A7A7A;--dk:#141414;--md:#1e1e1e;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--black);color:var(--ivory);font-family:'Montserrat',sans-serif;font-weight:300;overflow-x:hidden;cursor:none;}
+::selection{background:rgba(198,169,107,.25);color:var(--ivory);}
+::-webkit-scrollbar{width:3px;}
+::-webkit-scrollbar-track{background:var(--black);}
+::-webkit-scrollbar-thumb{background:rgba(198,169,107,.3);border-radius:2px;}
+.cur{position:fixed;width:9px;height:9px;background:var(--gold);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .3s,height .3s;}
+.cur-r{position:fixed;width:34px;height:34px;border:1px solid rgba(198,169,107,.45);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .3s,height .3s,border-color .3s;}
+.cur.h{width:5px;height:5px;}
+.cur-r.h{width:50px;height:50px;border-color:var(--gold);}
+@keyframes fadeUp{from{opacity:0;transform:translateY(32px);}to{opacity:1;transform:none;}}
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+@keyframes marquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+@keyframes spin{to{transform:rotate(360deg);}}
+@keyframes scrollBar{0%,100%{transform:scaleY(1);transform-origin:top;}50%{transform:scaleY(.35);transform-origin:top;}}
+@keyframes kenBurns{0%{transform:scale(1) translateX(0);}100%{transform:scale(1.065) translateX(-0.8%);}}
+@keyframes pgSlide{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:none;}}
+.fu{animation:fadeUp .9s cubic-bezier(.16,1,.3,1) both;}
+.fi{animation:fadeIn .6s ease both;}
+.d1{animation-delay:.12s;}.d2{animation-delay:.22s;}.d3{animation-delay:.34s;}.d4{animation-delay:.46s;}.d5{animation-delay:.58s;}
+.rv{opacity:0;transform:translateY(28px);transition:opacity .85s cubic-bezier(.16,1,.3,1),transform .85s cubic-bezier(.16,1,.3,1);}
+.rv.on{opacity:1;transform:none;}
+.rv.d1{transition-delay:.1s;}.rv.d2{transition-delay:.2s;}.rv.d3{transition-delay:.3s;}.rv.d4{transition-delay:.4s;}
+.btn-g{display:inline-flex;align-items:center;gap:10px;font-size:.6rem;letter-spacing:.24em;text-transform:uppercase;color:var(--black);background:var(--gold);padding:14px 32px;border:none;font-family:'Montserrat',sans-serif;font-weight:500;cursor:none;transition:background .35s,letter-spacing .35s;}
+.btn-g:hover{background:var(--gold2);letter-spacing:.3em;}
+.btn-o{display:inline-flex;align-items:center;gap:10px;font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ivory);background:transparent;padding:14px 32px;border:1px solid rgba(245,243,239,.22);font-family:'Montserrat',sans-serif;font-weight:300;cursor:none;transition:border-color .35s,color .35s;}
+.btn-o:hover{border-color:var(--gold);color:var(--gold);}
+.lbl{font-size:.58rem;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:12px;margin-bottom:16px;}
+.lbl::before{content:'';width:24px;height:1px;background:var(--gold);opacity:.65;}
+.hdg{font-family:'Cormorant Garamond',serif;font-size:clamp(2.4rem,4vw,4rem);font-weight:300;line-height:1.08;color:var(--ivory);}
+.hdg em{font-style:italic;color:var(--gold);}
+.rule{width:42px;height:1px;background:var(--gold);opacity:.5;margin:24px 0;}
+.gold-sep{display:flex;align-items:center;justify-content:center;gap:18px;color:rgba(198,169,107,.3);font-size:.48rem;letter-spacing:.4em;text-transform:uppercase;}
+.gold-sep::before,.gold-sep::after{content:'';flex:1;max-width:80px;height:1px;background:rgba(198,169,107,.2);}
+/* NAV */
+#nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:26px 60px;transition:background .5s,padding .4s,border-color .5s;border-bottom:1px solid transparent;}
+#nav.scrolled{background:rgba(13,13,13,.96);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);padding:16px 60px;border-bottom-color:rgba(198,169,107,.12);}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:400;letter-spacing:.18em;color:var(--ivory);text-transform:uppercase;cursor:none;background:none;border:none;}
+.nav-logo span{color:var(--gold);font-style:italic;}
+.nav-links{display:flex;gap:32px;list-style:none;}
+.nav-links button{font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(245,243,239,.65);background:none;border:none;cursor:none;position:relative;font-family:'Montserrat',sans-serif;font-weight:300;transition:color .3s;padding:2px 0;}
+.nav-links button::after{content:'';position:absolute;bottom:-3px;left:0;right:0;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:right;transition:transform .35s;}
+.nav-links button:hover,.nav-links button.active{color:var(--ivory);}
+.nav-links button:hover::after,.nav-links button.active::after{transform:scaleX(1);transform-origin:left;}
+.nav-cta{font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;padding:10px 22px;border:1px solid rgba(198,169,107,.5);color:var(--gold);background:transparent;cursor:none;font-family:'Montserrat',sans-serif;transition:background .3s,color .3s;}
+.nav-cta:hover{background:var(--gold);color:var(--black);}
+.mq{background:var(--gold);overflow:hidden;white-space:nowrap;padding:13px 0;}
+.mq-t{display:inline-flex;animation:marquee 30s linear infinite;}
+.mq-i{font-size:.54rem;letter-spacing:.3em;text-transform:uppercase;color:var(--black);font-weight:500;padding:0 32px;}
+.mq-d{color:rgba(13,13,13,.28);}
+/* COLLECTION CARDS */
+.col-card{position:relative;overflow:hidden;cursor:none;}
+.col-card .bg{position:absolute;inset:0;transition:transform .95s cubic-bezier(.16,1,.3,1);}
+.col-card:hover .bg{transform:scale(1.07);}
+.col-card .bg img{width:100%;height:100%;object-fit:cover;display:block;}
+.col-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,6,4,.95) 0%,rgba(8,6,4,.4) 45%,rgba(8,6,4,.1) 100%);transition:background .5s;}
+.col-card:hover .col-ov{background:linear-gradient(to top,rgba(8,6,4,.98) 0%,rgba(8,6,4,.6) 55%,rgba(8,6,4,.18) 100%);}
+.col-info{position:absolute;bottom:0;left:0;right:0;padding:30px 26px;transform:translateY(6px);transition:transform .5s cubic-bezier(.16,1,.3,1);}
+.col-card:hover .col-info{transform:none;}
+.col-cat{font-size:.52rem;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
+.col-nm{font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:300;color:var(--ivory);line-height:1.1;margin-bottom:16px;}
+.col-lnk{display:inline-flex;align-items:center;gap:9px;font-size:.54rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);opacity:0;transform:translateY(8px);transition:opacity .4s .08s,transform .4s .08s;}
+.col-card:hover .col-lnk{opacity:1;transform:none;}
+.col-bar{width:18px;height:1px;background:var(--gold);display:inline-block;}
+/* PRODUCT CARDS */
+.prod-card{cursor:none;}
+.prod-img{position:relative;overflow:hidden;aspect-ratio:4/5;background:var(--md);margin-bottom:16px;}
+.prod-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .9s cubic-bezier(.16,1,.3,1);}
+.prod-card:hover .prod-img img{transform:scale(1.07);}
+.prod-img-fb{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:radial-gradient(ellipse at 50% 45%,rgba(198,169,107,.08) 0%,transparent 65%);}
+.prod-act{position:absolute;bottom:0;left:0;right:0;background:rgba(198,169,107,.96);padding:13px;text-align:center;transform:translateY(100%);transition:transform .45s cubic-bezier(.16,1,.3,1);}
+.prod-card:hover .prod-act{transform:none;}
+.prod-act span{font-size:.55rem;letter-spacing:.28em;text-transform:uppercase;color:var(--black);font-weight:500;}
+.prod-tag{position:absolute;top:12px;left:12px;font-size:.46rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);background:rgba(8,6,4,.88);padding:5px 9px;backdrop-filter:blur(6px);}
+.prod-nm{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--ivory);font-weight:400;line-height:1.2;margin-bottom:5px;}
+.prod-sub{font-size:.57rem;letter-spacing:.14em;text-transform:uppercase;color:var(--grey);margin-bottom:8px;}
+.prod-pr{font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--gold);}
+/* HERO */
+.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center center;animation:kenBurns 22s ease-out both;filter:contrast(1.03) brightness(.9) saturate(.92);}
+.hero-ov1{position:absolute;inset:0;background:linear-gradient(112deg,rgba(8,6,4,.93) 0%,rgba(8,6,4,.76) 34%,rgba(8,6,4,.34) 62%,rgba(8,6,4,.14) 100%);}
+.hero-ov2{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(8,6,4,.34) 0%,rgba(8,6,4,.08) 24%,rgba(8,6,4,.12) 68%,rgba(8,6,4,.62) 100%);}
+/* ACCORDION */
+.acc-item{border-bottom:1px solid rgba(198,169,107,.1);}
+.acc-trigger{width:100%;background:none;border:none;padding:20px 0;display:flex;align-items:center;justify-content:space-between;cursor:none;font-family:'Montserrat',sans-serif;}
+.acc-label{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ivory);}
+.acc-icon{font-size:.9rem;color:var(--gold);transition:transform .35s;line-height:1;}
+.acc-icon.open{transform:rotate(45deg);}
+.acc-body{overflow:hidden;max-height:0;opacity:0;transition:max-height .45s cubic-bezier(.16,1,.3,1),opacity .4s;}
+.acc-body.open{max-height:500px;opacity:1;}
+.acc-inner{padding:0 0 22px;font-size:.72rem;line-height:1.95;color:var(--grey);letter-spacing:.04em;}
+/* FORM */
+.form-group{margin-bottom:24px;}
+.form-label{font-size:.56rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:10px;}
+.form-input,.form-textarea,.form-select{width:100%;background:rgba(255,255,255,.03);border:1px solid rgba(198,169,107,.15);color:var(--ivory);font-family:'Montserrat',sans-serif;font-size:.75rem;font-weight:300;padding:14px 16px;outline:none;transition:border-color .3s;}
+.form-input:focus,.form-textarea:focus,.form-select:focus{border-color:rgba(198,169,107,.45);}
+.form-textarea{resize:vertical;min-height:140px;}
+.form-select option{background:var(--dk);color:var(--ivory);}
+.toast{position:fixed;bottom:40px;right:40px;z-index:9000;background:var(--gold);color:var(--black);padding:14px 28px;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;font-weight:500;font-family:'Montserrat',sans-serif;display:none;animation:fadeUp .5s cubic-bezier(.16,1,.3,1) both;}
+.toast.show{display:block;}
+footer{background:#070707;padding:72px 60px 32px;border-top:1px solid rgba(198,169,107,.09);}
+.ft-top{display:grid;grid-template-columns:2.2fr 1fr 1fr 1fr;gap:48px;margin-bottom:56px;}
+.ft-logo{font-family:'Cormorant Garamond',serif;font-size:1.2rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ivory);display:block;margin-bottom:16px;background:none;border:none;cursor:none;font-weight:400;}
+.ft-logo span{color:var(--gold);font-style:italic;}
+.ft-desc{font-size:.68rem;line-height:1.95;color:var(--grey);max-width:260px;margin-bottom:16px;}
+.ft-col h4{font-size:.54rem;letter-spacing:.34em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;}
+.ft-col ul{list-style:none;}
+.ft-col li{margin-bottom:10px;}
+.ft-col button{font-size:.68rem;color:var(--grey);background:none;border:none;cursor:none;font-family:'Montserrat',sans-serif;font-weight:300;letter-spacing:.04em;transition:color .3s;padding:0;}
+.ft-col button:hover{color:var(--ivory);}
+.ft-bot{display:flex;align-items:center;justify-content:space-between;padding-top:24px;border-top:1px solid rgba(122,122,122,.1);}
+.ft-copy{font-size:.56rem;color:rgba(122,122,122,.4);letter-spacing:.07em;}
+.page{display:none;}
+.page.active{display:block;animation:fadeIn .45s ease both;}
+.filter-pill{font-size:.54rem;letter-spacing:.18em;text-transform:uppercase;padding:9px 20px;border:1px solid rgba(198,169,107,.18);background:transparent;color:var(--grey);cursor:none;font-family:'Montserrat',sans-serif;transition:all .3s;}
+.filter-pill.active{border-color:var(--gold);background:rgba(198,169,107,.1);color:var(--gold);}
+.filter-pill:hover{border-color:rgba(198,169,107,.35);color:rgba(198,169,107,.65);}
+.bc-btn{background:none;border:none;color:var(--grey);cursor:none;font-size:.54rem;letter-spacing:.2em;text-transform:uppercase;font-family:'Montserrat',sans-serif;transition:color .3s;}
+.bc-btn:hover{color:var(--gold);}
+.other-coll-btn{flex:0 0 175px;background:rgba(198,169,107,.03);border:1px solid rgba(198,169,107,.1);cursor:none;text-align:left;transition:background .3s,border-color .3s;font-family:'Montserrat',sans-serif;overflow:hidden;}
+.other-coll-btn:hover{background:rgba(198,169,107,.07);border-color:rgba(198,169,107,.25);}
+.other-coll-btn .ocb-img{width:100%;height:110px;object-fit:cover;display:block;transition:transform .6s cubic-bezier(.16,1,.3,1);}
+.other-coll-btn:hover .ocb-img{transform:scale(1.06);}
+.other-coll-btn .ocb-text{padding:12px 16px;}
+.stat-box{background:rgba(198,169,107,.03);border:1px solid rgba(198,169,107,.09);padding:40px 24px;text-align:center;transition:background .4s,border-color .4s;cursor:default;}
+.stat-box:hover{background:rgba(198,169,107,.065);border-color:rgba(198,169,107,.2);}
+.testi{padding:32px 28px;border:1px solid rgba(198,169,107,.09);position:relative;transition:border-color .4s;}
+.testi:hover{border-color:rgba(198,169,107,.22);}
+.thumb{flex:1;overflow:hidden;border:1px solid rgba(198,169,107,.08);cursor:none;transition:border-color .3s;position:relative;}
+.thumb img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block;transition:transform .5s cubic-bezier(.16,1,.3,1);}
+.thumb:hover img{transform:scale(1.05);}
+.thumb.active{border-color:rgba(198,169,107,.5);}
+.listing-banner{position:relative;height:400px;overflow:hidden;}
+.listing-banner img{width:100%;height:100%;object-fit:cover;display:block;}
+.listing-banner-ov{position:absolute;inset:0;background:linear-gradient(to right,rgba(8,6,4,.9) 0%,rgba(8,6,4,.5) 50%,rgba(8,6,4,.08) 100%);}
+.listing-banner-content{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:52px 64px;}
+/* PAGINATION */
+.pagination{display:flex;align-items:center;justify-content:center;gap:4px;padding:60px 0 72px;}
+.pg-btn{font-size:.56rem;letter-spacing:.18em;text-transform:uppercase;color:var(--grey);background:none;border:1px solid rgba(198,169,107,.12);padding:11px 20px;cursor:none;font-family:'Montserrat',sans-serif;transition:all .3s;min-width:46px;text-align:center;}
+.pg-btn:hover{border-color:rgba(198,169,107,.38);color:var(--ivory);}
+.pg-btn.active{border-color:var(--gold);color:var(--gold);background:rgba(198,169,107,.09);}
+.pg-btn:disabled{opacity:.28;pointer-events:none;}
+.pg-btn.pg-arrow{letter-spacing:.12em;padding:11px 22px;}
+.pg-sep{font-size:.54rem;color:rgba(198,169,107,.22);padding:0 4px;}
+.prod-grid-wrap{animation:pgSlide .45s cubic-bezier(.16,1,.3,1) both;}
+.sort-sel{background:rgba(255,255,255,.03);border:1px solid rgba(198,169,107,.15);color:var(--ivory);font-family:'Montserrat',sans-serif;font-size:.56rem;letter-spacing:.12em;text-transform:uppercase;padding:10px 14px;outline:none;cursor:none;}
+.sort-sel option{background:var(--dk);}
+.result-info{font-size:.56rem;letter-spacing:.16em;text-transform:uppercase;color:var(--grey);}
+/* PROD DETAIL IMAGE FALLBACK COLOUR BANDS — one per collection */
+.fb-er{background:linear-gradient(160deg,#1a1410 0%,#0e0b08 100%);}
+.fb-pw{background:linear-gradient(160deg,#101214 0%,#090a0c 100%);}
+.fb-wb{background:linear-gradient(160deg,#18130e 0%,#0e0b09 100%);}
+.fb-np{background:linear-gradient(160deg,#161110 0%,#0d0b0a 100%);}
+.fb-bb{background:linear-gradient(160deg,#131518 0%,#0a0b0d 100%);}
+.fb-ea{background:linear-gradient(160deg,#15120e 0%,#0d0a07 100%);}
+</style>
+</head>
+<body>
+
+<div class="cur" id="cur"></div>
+<div class="cur-r" id="curR"></div>
+<div class="toast" id="toast">Added to Wishlist ✓</div>
+
+<nav id="nav">
+  <button class="nav-logo" onclick="navigate('home')">Empire <span>Fine</span> Jewellers</button>
+  <ul class="nav-links">
+    <li><button onclick="navigate('home')" data-page="home">Home</button></li>
+    <li><button onclick="navigate('collections')" data-page="collections">Collections</button></li>
+    <li><button onclick="navigate('about')" data-page="about">About Us</button></li>
+    <li><button onclick="navigate('contact')" data-page="contact">Contact</button></li>
+  </ul>
+  <button class="nav-cta" onclick="navigate('contact')">Enquire Now</button>
+</nav>
+
+<!-- ═══ HOME ═══ -->
+<div class="page active" id="page-home">
+  <section style="position:relative;height:100vh;display:flex;align-items:center;overflow:hidden;background:#060504;">
+    <!-- Hero: premium storefront editorial image -->
+    <img class="hero-img"
+      src="assets/hero-inline.png"
+      alt="Empire Fine Jewellers — Luxury Jewellery Wilmslow"
+      onerror="this.style.display='none'">
+    <div class="hero-ov1"></div>
+    <div class="hero-ov2"></div>
+    <div style="position:absolute;left:64px;top:50%;transform:translateY(-50%);width:1px;height:88px;background:linear-gradient(to bottom,transparent,rgba(198,169,107,.55),transparent);z-index:2;"></div>
+    <div style="position:relative;z-index:3;padding:0 100px;max-width:780px;">
+      <p class="lbl fu" style="margin-bottom:28px;">Wilmslow, Cheshire — Est. Family Boutique</p>
+      <h1 class="fu d1" style="font-family:'Cormorant Garamond',serif;font-size:clamp(4rem,7.5vw,8.5rem);font-weight:300;line-height:.9;color:var(--ivory);margin-bottom:22px;letter-spacing:-.022em;">
+        Timeless<br/><em style="font-style:italic;color:var(--gold);display:block;margin-top:10px;">Craftsmanship</em>
+      </h1>
+      <p class="fu d2" style="font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,243,239,.48);margin-bottom:52px;font-weight:400;">Luxury Jewellery &amp; Pre-Owned Watches, Redefined</p>
+      <div class="fu d3" style="display:flex;gap:16px;flex-wrap:wrap;">
+        <button class="btn-g" onclick="navigate('collections')">Explore Collections <svg width="13" height="9" viewBox="0 0 13 9" fill="none"><path d="M1 4.5H12M8.5 1L12 4.5L8.5 8" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <button class="btn-o" onclick="navigate('listing','pre-owned-watches')">Pre-Owned Watches</button>
+      </div>
+    </div>
+    <div class="fu d5" style="position:absolute;bottom:44px;left:100px;display:flex;align-items:center;gap:14px;font-size:.54rem;letter-spacing:.32em;text-transform:uppercase;color:rgba(245,243,239,.26);z-index:3;">
+      <div style="width:1px;height:36px;background:linear-gradient(to bottom,rgba(198,169,107,.65),transparent);animation:scrollBar 2.2s ease-in-out infinite;"></div>Scroll
+    </div>
+    <div class="fu d4" style="position:absolute;bottom:44px;right:64px;z-index:3;display:flex;align-items:center;gap:14px;border:1px solid rgba(198,169,107,.16);padding:12px 22px;backdrop-filter:blur(12px);background:rgba(8,6,4,.26);">
+      <img src="assets/8343_NAJ_member_logo_OL_AW_CMYK_2_600x600@2x.jpg?v=1689729286" alt="NAJ Member" style="height:26px;width:auto;filter:brightness(0) invert(1);opacity:.5;" onerror="this.style.display='none'">
+      <div>
+        <p style="font-size:.43rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(198,169,107,.58);margin-bottom:2px;">NAJ Member</p>
+        <p style="font-size:.43rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(245,243,239,.3);">GIA Certified</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="mq"><div class="mq-t" id="mq1"></div></div>
+
+  <!-- HOME COLLECTIONS GRID -->
+  <section style="padding:110px 64px;background:var(--black);">
+    <div class="rv" style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:52px;">
+      <div><p class="lbl">Our Collections</p><h2 class="hdg">Crafted for<br/><em>Every Occasion</em></h2></div>
+      <button class="btn-o" onclick="navigate('collections')">Browse All</button>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(12,1fr);gap:3px;">
+      <!-- Large: Engagement Rings -->
+      <div class="col-card rv" style="grid-column:1/6;min-height:580px;" onclick="navigate('listing','engagement-rings')">
+        <div class="bg"><img src="assets/IMG_8311_480x480@2x.jpg?v=1768825579" alt="Engagement Rings" onerror="this.parentElement.style.background='#1a1410'"></div>
+        <div class="col-ov"></div>
+        <div class="col-info">
+          <p class="col-cat">Fine Jewellery</p>
+          <p class="col-nm" style="font-size:2.3rem;">Engagement<br/>Rings</p>
+          <span class="col-lnk"><span class="col-bar"></span>Explore Collection</span>
+        </div>
+      </div>
+      <!-- Pre-Owned Watches -->
+      <div class="col-card rv d1" style="grid-column:6/9;min-height:285px;" onclick="navigate('listing','pre-owned-watches')">
+        <div class="bg"><img src="assets/pre-owned-rolex-day-date-watch-watches-419_250x250@2x.jpg?v=1774720688" alt="Pre-Owned Watches" style="object-position:center top;" onerror="this.parentElement.style.background='#0e1012'"></div>
+        <div class="col-ov"></div>
+        <div class="col-info">
+          <p class="col-cat">Horology</p>
+          <p class="col-nm">Pre-Owned<br/>Watches</p>
+          <span class="col-lnk"><span class="col-bar"></span>Explore</span>
+        </div>
+      </div>
+      <!-- Wedding Bands -->
+      <div class="col-card rv d2" style="grid-column:9/13;min-height:285px;" onclick="navigate('listing','wedding-bands')">
+        <div class="bg"><img src="assets/IMG_8355_480x480@2x.png?v=1774324679" alt="Wedding Bands" onerror="this.parentElement.style.background='#16110d'"></div>
+        <div class="col-ov"></div>
+        <div class="col-info">
+          <p class="col-cat">Wedding</p>
+          <p class="col-nm">Wedding<br/>Bands</p>
+          <span class="col-lnk"><span class="col-bar"></span>Explore</span>
+        </div>
+      </div>
+      <!-- Necklaces -->
+      <div class="col-card rv d1" style="grid-column:6/9;min-height:285px;" onclick="navigate('listing','necklaces-pendants')">
+        <div class="bg"><img src="assets/IMG_8081_480x480@2x.jpg?v=1768259630" alt="Necklaces & Pendants" onerror="this.parentElement.style.background='#141110'"></div>
+        <div class="col-ov"></div>
+        <div class="col-info">
+          <p class="col-cat">Neckwear</p>
+          <p class="col-nm">Necklaces<br/>&amp; Pendants</p>
+          <span class="col-lnk"><span class="col-bar"></span>Explore</span>
+        </div>
+      </div>
+      <!-- Earrings -->
+      <div class="col-card rv d2" style="grid-column:9/13;min-height:285px;" onclick="navigate('listing','earrings')">
+        <div class="bg"><img src="assets/about-us-897.webp" alt="Earrings" onerror="this.parentElement.style.background='#131010'"></div>
+        <div class="col-ov"></div>
+        <div class="col-info">
+          <p class="col-cat">Fine Jewellery</p>
+          <p class="col-nm">Earrings<br/>&amp; More</p>
+          <span class="col-lnk"><span class="col-bar"></span>Explore</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BRAND STATEMENT -->
+  <section style="background:var(--dk);padding:130px 64px;text-align:center;position:relative;overflow:hidden;">
+    <div style="position:absolute;top:-80px;left:50%;transform:translateX(-50%);font-family:'Cormorant Garamond',serif;font-size:26rem;line-height:1;color:rgba(198,169,107,.018);pointer-events:none;user-select:none;">"</div>
+    <div style="max-width:820px;margin:0 auto;position:relative;">
+      <div class="gold-sep rv" style="margin-bottom:32px;">Family-Owned Boutique · Wilmslow</div>
+      <p class="rv d1" style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.7rem,3vw,2.9rem);font-weight:300;font-style:italic;color:var(--ivory);line-height:1.55;margin-bottom:32px;">
+        "Every piece we create carries the weight of <strong style="font-style:normal;color:var(--gold);font-weight:400;">exceptional craftsmanship</strong> and the promise of <strong style="font-style:normal;color:var(--gold);font-weight:400;">lifelong relationships.</strong>"
+      </p>
+      <div class="rule rv d2" style="margin:0 auto 28px;"></div>
+      <p class="rv d2" style="font-size:.74rem;line-height:2;color:var(--grey);max-width:560px;margin:0 auto 32px;letter-spacing:.04em;">Empire Fine Jewellers is a family-owned luxury jewellery and watch boutique, offering bespoke creations and a curated selection of pre-owned Patek Philippe, Rolex, and Audemars Piguet timepieces.</p>
+      <button class="btn-o rv d3" onclick="navigate('about')">Our Story</button>
+    </div>
+  </section>
+
+  <!-- FEATURED WATCHES -->
+  <section style="padding:110px 64px;background:var(--black);">
+    <div class="rv" style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:52px;">
+      <div><p class="lbl">Featured Timepieces</p><h2 class="hdg">Pre-Owned<br/><em>Watches</em></h2></div>
+      <button class="btn-o" onclick="navigate('listing','pre-owned-watches')">View All 52 Watches</button>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;" id="home-watches"></div>
+  </section>
+
+  <!-- EDITORIAL SPLIT -->
+  <section style="display:grid;grid-template-columns:1fr 1fr;min-height:56vh;background:var(--black);">
+    <div style="position:relative;overflow:hidden;">
+      <img src="assets/about-us-897.webp" alt="Empire Fine Jewellers Showroom"
+        style="width:100%;height:100%;object-fit:cover;display:block;min-height:460px;transition:transform 1.2s cubic-bezier(.16,1,.3,1);"
+        onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'"
+        onerror="this.parentElement.style.background='#141414'">
+      <div style="position:absolute;inset:0;background:linear-gradient(to right,transparent 55%,rgba(8,6,4,.65) 100%);"></div>
+    </div>
+    <div style="padding:80px 72px;display:flex;flex-direction:column;justify-content:center;background:var(--dk);">
+      <p class="lbl rv">The Empire Experience</p>
+      <h2 class="hdg rv d1" style="margin-bottom:20px;">Personal Service,<br/><em>Unmatched</em></h2>
+      <div class="rule rv d1"></div>
+      <p class="rv d2" style="font-size:.76rem;line-height:2;color:var(--grey);margin-bottom:32px;max-width:420px;">When you visit us, whether it's your first or tenth time, you become part of our family. From GIA-certified diamonds to pre-owned Royal Oak timepieces — we guide you through every step.</p>
+      <ul class="rv d2" style="list-style:none;margin-bottom:40px;">
+        <li style="font-size:.7rem;color:rgba(245,243,239,.5);padding:11px 0;border-bottom:1px solid rgba(198,169,107,.07);display:flex;align-items:center;gap:12px;"><span style="color:var(--gold);font-size:.32rem;">◆</span>Family-run boutique with a truly personal touch</li>
+        <li style="font-size:.7rem;color:rgba(245,243,239,.5);padding:11px 0;border-bottom:1px solid rgba(198,169,107,.07);display:flex;align-items:center;gap:12px;"><span style="color:var(--gold);font-size:.32rem;">◆</span>GIA-certified loose diamonds &amp; bespoke design</li>
+        <li style="font-size:.7rem;color:rgba(245,243,239,.5);padding:11px 0;border-bottom:1px solid rgba(198,169,107,.07);display:flex;align-items:center;gap:12px;"><span style="color:var(--gold);font-size:.32rem;">◆</span>Free jewellery inspection &amp; cleaning service</li>
+        <li style="font-size:.7rem;color:rgba(245,243,239,.5);padding:11px 0;border-bottom:1px solid rgba(198,169,107,.07);display:flex;align-items:center;gap:12px;"><span style="color:var(--gold);font-size:.32rem;">◆</span>Expert repair, resizing &amp; professional valuations</li>
+      </ul>
+      <button class="btn-g rv d3" onclick="navigate('contact')">Get in Touch <svg width="13" height="9" viewBox="0 0 13 9" fill="none"><path d="M1 4.5H12M8.5 1L12 4.5L8.5 8" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    </div>
+  </section>
+
+  <!-- IMAGE PAIR -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:3px;background:var(--black);">
+    <div style="overflow:hidden;aspect-ratio:16/7;"><img src="assets/about-us-762.webp" alt="" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 1s cubic-bezier(.16,1,.3,1);" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'" onerror="this.parentElement.style.background='#141414'"></div>
+    <div style="overflow:hidden;aspect-ratio:16/7;"><img src="assets/about-us-412.webp" alt="" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 1s cubic-bezier(.16,1,.3,1);" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'" onerror="this.parentElement.style.background='#1a1a1a'"></div>
+  </div>
+
+  <!-- TRUST -->
+  <section style="background:var(--dk);padding:90px 64px;">
+    <div style="max-width:1200px;margin:0 auto;">
+      <div class="rv" style="text-align:center;margin-bottom:64px;"><p class="lbl" style="justify-content:center;">Our Reputation</p><h2 class="hdg">Trusted by<br/><em>Our Community</em></h2></div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-bottom:64px;">
+        <div class="stat-box rv"><div style="font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:300;color:var(--gold);line-height:1;margin-bottom:10px;">Family</div><div style="font-size:.57rem;letter-spacing:.24em;text-transform:uppercase;color:var(--grey);">Run Business</div></div>
+        <div class="stat-box rv d1"><div style="font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:300;color:var(--gold);line-height:1;margin-bottom:10px;">GIA</div><div style="font-size:.57rem;letter-spacing:.24em;text-transform:uppercase;color:var(--grey);">Certified Diamonds</div></div>
+        <div class="stat-box rv d2"><div style="font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:300;color:var(--gold);line-height:1;margin-bottom:10px;">52+</div><div style="font-size:.57rem;letter-spacing:.24em;text-transform:uppercase;color:var(--grey);">Pre-Owned Timepieces</div></div>
+        <div class="stat-box rv d3"><div style="font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:300;color:var(--gold);line-height:1;margin-bottom:10px;">NAJ</div><div style="font-size:.57rem;letter-spacing:.24em;text-transform:uppercase;color:var(--grey);">Association Member</div></div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;">
+        <div class="testi rv"><div style="font-family:'Cormorant Garamond',serif;font-size:4rem;line-height:1;color:rgba(198,169,107,.1);position:absolute;top:8px;left:22px;">"</div><p style="font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-style:italic;color:rgba(245,243,239,.7);line-height:1.75;margin-bottom:22px;padding-top:28px;">Empire Fine Jewellers are truly exceptional. They helped me find the perfect engagement ring — the service was personal, unhurried, and completely trustworthy.</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:34px;height:34px;border-radius:50%;background:rgba(198,169,107,.12);border:1px solid rgba(198,169,107,.22);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:.9rem;color:var(--gold);">J</div><div><div style="font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ivory);">James W.</div><div style="font-size:.48rem;color:var(--gold);letter-spacing:.18em;">★ ★ ★ ★ ★</div></div></div></div>
+        <div class="testi rv d1"><div style="font-family:'Cormorant Garamond',serif;font-size:4rem;line-height:1;color:rgba(198,169,107,.1);position:absolute;top:8px;left:22px;">"</div><p style="font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-style:italic;color:rgba(245,243,239,.7);line-height:1.75;margin-bottom:22px;padding-top:28px;">Purchased a pre-owned Rolex and the whole experience was world-class. Knowledgeable, honest, and genuinely passionate about what they do.</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:34px;height:34px;border-radius:50%;background:rgba(198,169,107,.12);border:1px solid rgba(198,169,107,.22);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:.9rem;color:var(--gold);">S</div><div><div style="font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ivory);">Sarah M.</div><div style="font-size:.48rem;color:var(--gold);letter-spacing:.18em;">★ ★ ★ ★ ★</div></div></div></div>
+        <div class="testi rv d2"><div style="font-family:'Cormorant Garamond',serif;font-size:4rem;line-height:1;color:rgba(198,169,107,.1);position:absolute;top:8px;left:22px;">"</div><p style="font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-style:italic;color:rgba(245,243,239,.7);line-height:1.75;margin-bottom:22px;padding-top:28px;">The bespoke design service is unmatched. The team crafted a wedding ring that exceeded every expectation. Part of the family now.</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:34px;height:34px;border-radius:50%;background:rgba(198,169,107,.12);border:1px solid rgba(198,169,107,.22);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:.9rem;color:var(--gold);">R</div><div><div style="font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ivory);">Rachel &amp; Tom H.</div><div style="font-size:.48rem;color:var(--gold);letter-spacing:.18em;">★ ★ ★ ★ ★</div></div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="background:var(--black);padding:120px 64px;text-align:center;position:relative;overflow:hidden;">
+    <div style="position:absolute;inset:0;background:radial-gradient(ellipse 65% 55% at 50% 50%,rgba(198,169,107,.038) 0%,transparent 70%);"></div>
+    <div style="position:relative;max-width:660px;margin:0 auto;">
+      <p class="lbl rv" style="justify-content:center;">Begin Your Journey</p>
+      <h2 class="hdg rv d1" style="font-size:clamp(2.6rem,4.5vw,5rem);margin-bottom:18px;">Visit Us In Wilmslow<br/>or <em>Shop Online</em></h2>
+      <p class="rv d2" style="font-size:.72rem;letter-spacing:.08em;color:var(--grey);margin-bottom:44px;line-height:1.9;">Whether you're searching for a GIA-certified diamond engagement ring, a pre-owned Rolex, or a bespoke creation — our team is here to guide you every step of the way.</p>
+      <div class="rv d3" style="display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;">
+        <button class="btn-g" onclick="navigate('collections')">Shop Now <svg width="13" height="9" viewBox="0 0 13 9" fill="none"><path d="M1 4.5H12M8.5 1L12 4.5L8.5 8" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <button class="btn-o" onclick="navigate('contact')">Contact Us</button>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ═══ COLLECTIONS ═══ -->
+<div class="page" id="page-collections">
+  <div style="position:relative;height:440px;overflow:hidden;background:#060504;">
+    <img src="assets/IMG_8355_480x480@2x.png?v=1774324679" alt="Collections" style="width:100%;height:100%;object-fit:cover;display:block;object-position:center 35%;" onerror="this.parentElement.style.background='#141414'">
+    <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(8,6,4,.5) 0%,rgba(8,6,4,.82) 100%);"></div>
+    <div style="position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:64px 64px;">
+      <p class="lbl fu">Explore</p>
+      <h1 class="fu d1" style="font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,5vw,5.5rem);font-weight:300;color:var(--ivory);">Our <em style="font-style:italic;color:var(--gold);">Collections</em></h1>
+      <p class="fu d2" style="font-size:.74rem;line-height:1.9;color:rgba(245,243,239,.58);max-width:500px;margin-top:14px;">From GIA-certified engagement rings to pre-owned Rolex, Patek Philippe, and Audemars Piguet — every piece is chosen for lasting excellence.</p>
+    </div>
+  </div>
+  <section style="padding:80px 64px;background:var(--black);">
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:3px;" id="collections-grid"></div>
+  </section>
+  <div style="background:var(--dk);padding:60px 64px;border-top:1px solid rgba(198,169,107,.08);display:flex;align-items:center;justify-content:center;gap:52px;">
+    <div style="text-align:center;"><img src="assets/8343_NAJ_member_logo_OL_AW_CMYK_2_600x600@2x.jpg?v=1689729286" alt="NAJ" style="height:46px;width:auto;filter:brightness(0) invert(1);opacity:.26;display:block;margin:0 auto 8px;" onerror="this.style.display='none'"><div style="font-size:.52rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(198,169,107,.36);">NAJ Member</div></div>
+    <div style="max-width:400px;text-align:center;padding:0 40px;border-left:1px solid rgba(198,169,107,.1);border-right:1px solid rgba(198,169,107,.1);"><p style="font-size:.7rem;line-height:1.85;color:rgba(122,122,122,.52);">We are proud members of the National Association of Jewellers, committed to the highest standards of honesty, integrity and professionalism in every transaction.</p></div>
+    <div style="text-align:center;"><div style="font-size:.52rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(198,169,107,.36);margin-bottom:8px;">GIA Certified</div><div style="font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:rgba(245,243,239,.12);">◆</div></div>
+  </div>
+</div>
+
+<!-- ═══ LISTING ═══ -->
+<div class="page" id="page-listing">
+  <div id="listing-banner-wrap"></div>
+  <div id="listing-header" style="padding:36px 64px 44px;background:var(--dk);border-bottom:1px solid rgba(198,169,107,.08);"></div>
+  <section style="padding:52px 64px 0;background:var(--black);">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:36px;flex-wrap:wrap;gap:16px;">
+      <div style="display:flex;gap:10px;flex-wrap:wrap;" id="listing-filters"></div>
+      <div style="display:flex;align-items:center;gap:16px;">
+        <span class="result-info" id="listing-count"></span>
+        <select class="sort-sel" id="listing-sort" onchange="applySort()">
+          <option value="featured">Featured</option>
+          <option value="az">Name A–Z</option>
+          <option value="za">Name Z–A</option>
+          <option value="new">New In First</option>
+        </select>
+      </div>
+    </div>
+    <div id="listing-grid-wrap"></div>
+  </section>
+  <div style="background:var(--dk);padding:72px 64px;border-top:1px solid rgba(198,169,107,.08);">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:36px;">
+      <p style="font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:300;color:var(--ivory);">Explore Other <em style="font-style:italic;color:var(--gold);">Collections</em></p>
+      <button class="btn-o" onclick="navigate('collections')">All Collections</button>
+    </div>
+    <div style="display:flex;gap:12px;overflow-x:auto;padding-bottom:4px;" id="listing-other"></div>
+  </div>
+</div>
+
+<!-- ═══ PRODUCT ═══ -->
+<div class="page" id="page-product">
+  <div id="product-bc" style="padding-top:118px;padding-left:64px;padding-right:64px;background:var(--black);"></div>
+  <section style="padding:0 64px 100px;background:var(--black);"><div style="display:grid;grid-template-columns:1.1fr 1fr;gap:80px;align-items:start;" id="product-main"></div></section>
+  <section style="background:var(--dk);padding:80px 64px;">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:48px;">
+      <div><p class="lbl">You May Also Like</p><h2 class="hdg" style="font-size:clamp(1.8rem,2.5vw,2.6rem);" id="product-related-title">More from Collection</h2></div>
+      <button class="btn-o" id="product-related-btn">View All</button>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;" id="product-related"></div>
+  </section>
+</div>
+
+<!-- ═══ ABOUT ═══ -->
+<div class="page" id="page-about">
+  <div style="padding-top:140px;padding-bottom:100px;padding-left:64px;padding-right:64px;background:var(--dk);border-bottom:1px solid rgba(198,169,107,.08);position:relative;overflow:hidden;">
+    <div style="position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 70% 50%,rgba(198,169,107,.05) 0%,transparent 60%);"></div>
+    <div style="max-width:740px;position:relative;">
+      <p class="lbl fu">Our Story</p>
+      <h1 class="fu d1" style="font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,5vw,5.5rem);font-weight:300;color:var(--ivory);line-height:1.05;margin-bottom:24px;">A Family Built on<br/><em style="font-style:italic;color:var(--gold);">Trust &amp; Craftsmanship</em></h1>
+      <div class="rule fu d2"></div>
+      <p class="fu d2" style="font-size:.8rem;line-height:2;color:var(--grey);max-width:580px;">Empire Fine Jewellers is a family-owned luxury jewellery and watch boutique, offering bespoke creations and a curated selection of pre-owned Patek Philippe, Rolex, and Audemars Piguet timepieces. Our clients enjoy a personalised and exclusive buying experience, with access to GIA-certified loose diamonds and expert custom design, repair, and valuation services. Many of our clients return as lifelong friends, trusting us with their most treasured jewellery and timepieces.</p>
+    </div>
+  </div>
+  <section style="background:var(--black);padding:0;">
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);">
+      <div class="rv" style="padding:72px 52px;border-right:1px solid rgba(198,169,107,.08);transition:background .4s;" onmouseenter="this.style.background='rgba(198,169,107,.02)'" onmouseleave="this.style.background=''">
+        <img src="assets/IMG_8081_480x480@2x.jpg?v=1768259630" alt="" style="width:100%;height:190px;object-fit:cover;margin-bottom:28px;display:block;" onerror="this.style.display='none'">
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.65rem;font-weight:400;color:var(--ivory);margin-bottom:18px;line-height:1.2;">Above &amp; Beyond Quality</h3>
+        <p style="font-size:.73rem;line-height:1.95;color:var(--grey);">Elevate your style with jewellery that lasts a lifetime. We never compromise on quality. From expertly crafted wedding rings to unique custom pieces, every design is made to stand out, endure, and impress.</p>
+      </div>
+      <div class="rv d1" style="padding:72px 52px;border-right:1px solid rgba(198,169,107,.08);transition:background .4s;" onmouseenter="this.style.background='rgba(198,169,107,.02)'" onmouseleave="this.style.background=''">
+        <img src="assets/IMG_8355_480x480@2x.png?v=1774324679" alt="" style="width:100%;height:190px;object-fit:cover;margin-bottom:28px;display:block;" onerror="this.style.display='none'">
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.65rem;font-weight:400;color:var(--ivory);margin-bottom:18px;line-height:1.2;">Sparkling Relationships</h3>
+        <p style="font-size:.73rem;line-height:1.95;color:var(--grey);">When you order from us, whether it's your first or tenth time, you become part of our family. During your search for the perfect gemstone or setting, we help you through every step of the process.</p>
+      </div>
+      <div class="rv d2" style="padding:72px 52px;transition:background .4s;" onmouseenter="this.style.background='rgba(198,169,107,.02)'" onmouseleave="this.style.background=''">
+        <img src="assets/IMG_8311_480x480@2x.jpg?v=1768825579" alt="" style="width:100%;height:190px;object-fit:cover;margin-bottom:28px;display:block;" onerror="this.style.display='none'">
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.65rem;font-weight:400;color:var(--ivory);margin-bottom:18px;line-height:1.2;">Our Promise</h3>
+        <p style="font-size:.73rem;line-height:1.95;color:var(--grey);">We are committed to honesty, integrity, and exceptional craftsmanship. We take pride in every piece we create, and we want you to feel that same pride every time you wear it.</p>
+      </div>
+    </div>
+  </section>
+  <section style="background:var(--dk);padding:100px 64px;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;max-width:1100px;margin:0 auto;">
+      <div class="rv"><p class="lbl">Accreditation</p><h2 class="hdg" style="margin-bottom:20px;">National Association<br/>of <em>Jewellers</em></h2><div class="rule"></div><p style="font-size:.76rem;line-height:1.95;color:var(--grey);margin-bottom:28px;">We are proud to be members of the National Association of Jewellers. Every NAJ member is required to abide by the NAJ's Code of Conduct based on honesty, integrity and professionalism. The grant of arms gives customers complete peace of mind that they are dealing with a jewellery business they can trust.</p><button class="btn-o" onclick="navigate('contact')">Get in Touch</button></div>
+      <div class="rv d2" style="display:flex;align-items:center;justify-content:center;"><img src="assets/8343_NAJ_member_logo_OL_AW_CMYK_2_600x600@2x.jpg?v=1689729286" alt="NAJ Member" style="width:180px;height:auto;filter:brightness(0) invert(1);opacity:.2;display:block;margin:0 auto;" onerror="this.style.display='none'"></div>
+    </div>
+  </section>
+  <section style="background:var(--black);padding:100px 64px;">
+    <div class="rv" style="text-align:center;margin-bottom:64px;"><p class="lbl" style="justify-content:center;">What We Offer</p><h2 class="hdg">Our <em>Services</em></h2></div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:3px;">
+      <div class="rv" style="padding:56px 44px;background:rgba(198,169,107,.025);border:1px solid rgba(198,169,107,.08);position:relative;transition:background .4s,border-color .4s;" onmouseenter="this.style.background='rgba(198,169,107,.05)';this.style.borderColor='rgba(198,169,107,.18)'" onmouseleave="this.style.background='rgba(198,169,107,.025)';this.style.borderColor='rgba(198,169,107,.08)'">
+        <div style="position:absolute;top:20px;right:24px;font-family:'Cormorant Garamond',serif;font-size:4rem;color:rgba(198,169,107,.05);line-height:1;">01</div>
+        <img src="assets/services-658.jpg" alt="" style="width:100%;height:150px;object-fit:cover;margin-bottom:24px;display:block;" onerror="this.style.display='none'">
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--ivory);margin-bottom:14px;font-weight:400;">Jewellery Design</h3>
+        <p style="font-size:.72rem;line-height:1.9;color:var(--grey);margin-bottom:20px;">Each design is crafted to inspire and transform — handmade with meticulous attention to detail using the finest materials available.</p>
+        <ul style="list-style:none;"><li style="font-size:.65rem;color:rgba(245,243,239,.44);padding:7px 0;border-bottom:1px solid rgba(198,169,107,.06);display:flex;align-items:center;gap:9px;"><span style="color:rgba(198,169,107,.38);font-size:.32rem;">◆</span>Bespoke commissions in your choice of metal</li><li style="font-size:.65rem;color:rgba(245,243,239,.44);padding:7px 0;border-bottom:1px solid rgba(198,169,107,.06);display:flex;align-items:center;gap:9px;"><span style="color:rgba(198,169,107,.38);font-size:.32rem;">◆</span>GIA-certified loose diamonds available</li><li style="font-size:.65rem;color:rgba(245,243,239,.44);padding:7px 0;border-bottom:1px solid rgba(198,169,107,.06);display:flex;align-items:center;gap:9px;"><span style="color:rgba(198,169,107,.38);font-size:.32rem;">◆</span>Use your own stones for a personal touch</li></ul>
+      </div>
+      <div class="rv d1" style="padding:56px 44px;background:rgba(198,169,107,.025);border:1px solid rgba(198,169,107,.08);position:relative;transition:background .4s,border-color .4s;" onmouseenter="this.style.background='rgba(198,169,107,.05)';this.style.borderColor='rgba(198,169,107,.18)'" onmouseleave="this.style.background='rgba(198,169,107,.025)';this.style.borderColor='rgba(198,169,107,.08)'">
+        <div style="position:absolute;top:20px;right:24px;font-family:'Cormorant Garamond',serif;font-size:4rem;color:rgba(198,169,107,.05);line-height:1;">02</div>
+        <img src="assets/services-921.webp" alt="" style="width:100%;height:150px;object-fit:cover;margin-bottom:24px;display:block;" onerror="this.style.display='none'">
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--ivory);margin-bottom:14px;font-weight:400;">Repair &amp; Restoration</h3>
+        <p style="font-size:.72rem;line-height:1.9;color:var(--grey);margin-bottom:20px;">We treat every piece as if it were our own — from gentle cleaning and polishing to expert resizing and full restoration.</p>
+        <ul style="list-style:none;"><li style="font-size:.65rem;color:rgba(245,243,239,.44);padding:7px 0;border-bottom:1px solid rgba(198,169,107,.06);display:flex;align-items:center;gap:9px;"><span style="color:rgba(198,169,107,.38);font-size:.32rem;">◆</span>Free diamond jewellery inspection &amp; cleaning</li><li style="font-size:.65rem;color:rgba(245,243,239,.44);padding:7px 0;border-bottom:1px solid rgba(198,169,107,.06);display:flex;align-items:center;gap:9px;"><span style="color:rgba(198,169,107,.38);font-size:.32rem;">◆</span>Ring sizing, resizing &amp; engraving</li><li style="font-size:.65rem;color:rgba(245,243,239,.44);padding:7px 0;border-bottom:1px solid rgba(198,169,107,.06);display:flex;align-items:center;gap:9px;"><span style="color:rgba(198,169,107,.38);font-size:.32rem;">◆</span>Watch battery &amp; link sizing</li></ul>
+      </div>
+      <div class="rv d2" style="padding:56px 44px;background:rgba(198,169,107,.025);border:1px solid rgba(198,169,107,.08);position:relative;transition:background .4s,border-color .4s;" onmouseenter="this.style.background='rgba(198,169,107,.05)';this.style.borderColor='rgba(198,169,107,.18)'" onmouseleave="this.style.background='rgba(198,169,107,.025)';this.style.borderColor='rgba(198,169,107,.08)'">
+        <div style="position:absolute;top:20px;right:24px;font-family:'Cormorant Garamond',serif;font-size:4rem;color:rgba(198,169,107,.05);line-height:1;">03</div>
+        <img src="assets/services-893.jpg" alt="" style="width:100%;height:150px;object-fit:cover;margin-bottom:24px;display:block;" onerror="this.style.display='none'">
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--ivory);margin-bottom:14px;font-weight:400;">Valuations</h3>
+        <p style="font-size:.72rem;line-height:1.9;color:var(--grey);margin-bottom:20px;">Our expert team provides detailed appraisals covering craftsmanship, metals, gemstones, and design of each piece.</p>
+        <ul style="list-style:none;"><li style="font-size:.65rem;color:rgba(245,243,239,.44);padding:7px 0;border-bottom:1px solid rgba(198,169,107,.06);display:flex;align-items:center;gap:9px;"><span style="color:rgba(198,169,107,.38);font-size:.32rem;">◆</span>Insurance replacement valuations</li><li style="font-size:.65rem;color:rgba(245,243,239,.44);padding:7px 0;border-bottom:1px solid rgba(198,169,107,.06);display:flex;align-items:center;gap:9px;"><span style="color:rgba(198,169,107,.38);font-size:.32rem;">◆</span>Probate and estate valuations</li><li style="font-size:.65rem;color:rgba(245,243,239,.44);padding:7px 0;border-bottom:1px solid rgba(198,169,107,.06);display:flex;align-items:center;gap:9px;"><span style="color:rgba(198,169,107,.38);font-size:.32rem;">◆</span>Buy gold, diamonds &amp; watches</li></ul>
+      </div>
+    </div>
+  </section>
+  <section style="background:var(--dk);padding:100px 64px;text-align:center;">
+    <div style="max-width:580px;margin:0 auto;">
+      <p class="lbl rv" style="justify-content:center;">Visit Us</p>
+      <h2 class="hdg rv d1" style="margin-bottom:20px;">Come &amp; Meet<br/>the <em>Team</em></h2>
+      <p class="rv d2" style="font-size:.74rem;line-height:1.95;color:var(--grey);margin-bottom:40px;">We'd love to welcome you to our Wilmslow showroom. Whether you're beginning the search for something extraordinary or returning — we are here, ready for you.</p>
+      <div class="rv d3" style="display:flex;align-items:center;justify-content:center;gap:16px;">
+        <button class="btn-g" onclick="navigate('contact')">Contact Us <svg width="13" height="9" viewBox="0 0 13 9" fill="none"><path d="M1 4.5H12M8.5 1L12 4.5L8.5 8" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <button class="btn-o" onclick="navigate('collections')">Shop Collections</button>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ═══ CONTACT ═══ -->
+<div class="page" id="page-contact">
+  <div style="padding-top:140px;padding-bottom:80px;padding-left:64px;padding-right:64px;background:var(--dk);border-bottom:1px solid rgba(198,169,107,.08);">
+    <p class="lbl fu">Get in Touch</p>
+    <h1 class="fu d1" style="font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,5vw,5.5rem);font-weight:300;color:var(--ivory);">We'd Love to<br/><em style="font-style:italic;color:var(--gold);">Hear from You</em></h1>
+    <p class="fu d2" style="font-size:.74rem;line-height:1.9;color:var(--grey);max-width:480px;margin-top:18px;">Whether you have a question about a piece, wish to book an appointment, or want to discuss a bespoke commission — we're here to help.</p>
+  </div>
+  <section style="padding:80px 64px;background:var(--black);">
+    <div style="display:grid;grid-template-columns:1fr 1.4fr;gap:80px;align-items:start;">
+      <div class="rv">
+        <p class="lbl" style="margin-bottom:28px;">Our Showroom</p>
+        <div style="margin-bottom:40px;">
+          <div style="display:flex;gap:24px;padding:16px 0;border-bottom:1px solid rgba(198,169,107,.08);"><span style="font-size:.54rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);min-width:72px;padding-top:2px;">Address</span><span style="font-size:.76rem;color:rgba(245,243,239,.65);line-height:1.7;">8 Water Lane<br/>Wilmslow, SK9 5AA</span></div>
+          <div style="display:flex;gap:24px;padding:16px 0;border-bottom:1px solid rgba(198,169,107,.08);"><span style="font-size:.54rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);min-width:72px;padding-top:2px;">Telephone</span><a href="tel:+441625529696" style="font-size:.76rem;color:rgba(245,243,239,.65);line-height:1.7;text-decoration:none;transition:color .3s;" onmouseenter="this.style.color='var(--gold)'" onmouseleave="this.style.color='rgba(245,243,239,.65)'">01625 529 696</a></div>
+          <div style="display:flex;gap:24px;padding:16px 0;border-bottom:1px solid rgba(198,169,107,.08);"><span style="font-size:.54rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);min-width:72px;padding-top:2px;">Email</span><a href="mailto:info@empirejewellers.co.uk" style="font-size:.76rem;color:rgba(245,243,239,.65);line-height:1.7;text-decoration:none;transition:color .3s;" onmouseenter="this.style.color='var(--gold)'" onmouseleave="this.style.color='rgba(245,243,239,.65)'">info@empirejewellers.co.uk</a></div>
+          <div style="display:flex;gap:24px;padding:16px 0;border-bottom:1px solid rgba(198,169,107,.08);"><span style="font-size:.54rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);min-width:72px;padding-top:2px;">Mon–Sat</span><span style="font-size:.76rem;color:rgba(245,243,239,.65);">9:00am – 5:00pm</span></div>
+          <div style="display:flex;gap:24px;padding:16px 0;border-bottom:1px solid rgba(198,169,107,.08);"><span style="font-size:.54rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);min-width:72px;padding-top:2px;">Sunday</span><span style="font-size:.76rem;color:rgba(245,243,239,.65);">10:00am – 4:30pm</span></div>
+        </div>
+        <div style="width:100%;aspect-ratio:4/3;background:linear-gradient(145deg,#141210,#0d0b09);border:1px solid rgba(198,169,107,.1);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
+          <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(198,169,107,.04) 0%,transparent 60%);"></div>
+          <div style="text-align:center;position:relative;z-index:1;">
+            <p style="font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;">Find Us</p>
+            <p style="font-size:.72rem;color:var(--grey);line-height:1.7;">8 Water Lane, Wilmslow<br/>SK9 5AA, Cheshire</p>
+            <a href="https://maps.google.com?q=Empire+Fine+Jewellers+8+Water+Lane+Wilmslow" target="_blank" style="display:inline-flex;align-items:center;gap:8px;margin-top:16px;font-size:.55rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);text-decoration:none;"><span style="width:16px;height:1px;background:var(--gold);display:block;"></span>Get Directions</a>
+          </div>
+        </div>
+      </div>
+      <div class="rv d1">
+        <form id="contact-form" onsubmit="submitForm(event)">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+            <div class="form-group"><label class="form-label">Full Name *</label><input class="form-input" name="name" required placeholder="Your name"></div>
+            <div class="form-group"><label class="form-label">Email Address *</label><input class="form-input" type="email" name="email" required placeholder="your@email.com"></div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+            <div class="form-group"><label class="form-label">Phone Number</label><input class="form-input" name="phone" placeholder="Optional"></div>
+            <div class="form-group"><label class="form-label">Subject</label><select class="form-input form-select" name="subject"><option>General Enquiry</option><option>Bespoke Commission</option><option>Pre-Owned Watch Enquiry</option><option>Engagement Ring Consultation</option><option>Jewellery Repair</option><option>Valuation Request</option><option>Book an Appointment</option></select></div>
+          </div>
+          <div class="form-group"><label class="form-label">Your Message *</label><textarea class="form-textarea" name="message" required placeholder="Tell us what you're looking for, or how we can help..."></textarea></div>
+          <button type="submit" class="btn-g" id="contact-submit" style="width:100%;justify-content:center;">Send Enquiry <svg width="13" height="9" viewBox="0 0 13 9" fill="none"><path d="M1 4.5H12M8.5 1L12 4.5L8.5 8" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <p style="font-size:.58rem;color:var(--grey);margin-top:16px;letter-spacing:.06em;line-height:1.7;text-align:center;">We aim to respond to all enquiries within one business day.</p>
+        </form>
+        <div id="contact-success" style="display:none;padding:60px 48px;border:1px solid rgba(198,169,107,.15);text-align:center;">
+          <div style="font-size:2.5rem;color:var(--gold);margin-bottom:24px;">◈</div>
+          <h3 style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:var(--ivory);margin-bottom:16px;">Thank You.</h3>
+          <p style="font-size:.74rem;line-height:1.9;color:var(--grey);max-width:380px;margin:0 auto 32px;">We've received your message and will be in touch very shortly.</p>
+          <button class="btn-o" onclick="document.getElementById('contact-form').reset();document.getElementById('contact-form').style.display='block';document.getElementById('contact-success').style.display='none';">Send Another Message</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft-top">
+    <div>
+      <button class="ft-logo" onclick="navigate('home')">Empire <span>Fine</span> Jewellers</button>
+      <p class="ft-desc">A family-owned luxury jewellery and watch boutique in Wilmslow, Cheshire. Purveyors of bespoke jewellery and pre-owned Rolex, Patek Philippe &amp; Audemars Piguet timepieces.</p>
+      <p style="font-size:.66rem;color:var(--grey);line-height:1.8;margin-bottom:4px;">8 Water Lane, Wilmslow, SK9 5AA</p>
+      <p style="font-size:.66rem;line-height:1.8;margin-bottom:4px;"><a href="tel:+441625529696" style="color:var(--grey);text-decoration:none;">01625 529 696</a></p>
+      <p style="font-size:.66rem;line-height:1.8;"><a href="mailto:info@empirejewellers.co.uk" style="color:var(--grey);text-decoration:none;">info@empirejewellers.co.uk</a></p>
+    </div>
+    <div class="ft-col"><h4>Collections</h4><ul id="footer-coll"></ul></div>
+    <div class="ft-col"><h4>Services</h4><ul>
+      <li><button onclick="navigate('contact')">Bespoke Design</button></li>
+      <li><button onclick="navigate('contact')">Jewellery Repair</button></li>
+      <li><button onclick="navigate('contact')">Ring Resizing</button></li>
+      <li><button onclick="navigate('contact')">Valuations</button></li>
+      <li><button onclick="navigate('contact')">Engraving</button></li>
+      <li><button onclick="navigate('contact')">Pearl Restringing</button></li>
+      <li><button onclick="navigate('contact')">Watch Servicing</button></li>
+    </ul></div>
+    <div class="ft-col"><h4>Company</h4><ul>
+      <li><button onclick="navigate('about')">About Us</button></li>
+      <li><button onclick="navigate('contact')">Contact Us</button></li>
+      <li><button onclick="navigate('collections')">Collections</button></li>
+    </ul>
+    <div style="margin-top:28px;">
+      <p style="font-size:.54rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;">Opening Hours</p>
+      <p style="font-size:.63rem;color:var(--grey);line-height:1.9;">Mon – Sat: 9:00am – 5:00pm</p>
+      <p style="font-size:.63rem;color:var(--grey);line-height:1.9;">Sunday: 10:00am – 4:30pm</p>
+    </div></div>
+  </div>
+  <div class="ft-bot">
+    <p class="ft-copy">© 2026 Empire Fine Jewellers Ltd. All rights reserved.</p>
+    <p class="ft-copy">NAJ Member · GIA Certified · 8 Water Lane, Wilmslow, SK9 5AA</p>
+  </div>
+</footer>
+
+<script>
+/* ═══════════════════════════════════════════════════
+   IMAGE LIBRARY — real Empire CDN assets
+   Each constant is a distinct URL so no collection
+   recycles the same image as another.
+═══════════════════════════════════════════════════ */
+const CDN = 'assets/';
+
+// ── Watches — actual product shots ──
+const WI = {
+  sky1: CDN+'E6665C97-18B6-4313-B4CE-298283F8680B_250x250@2x.jpg?v=1774798693',
+  dd1:  CDN+'pre-owned-rolex-day-date-watch-watches-419_250x250@2x.jpg?v=1774720688',
+  dd2:  CDN+'pre-owned-rolex-day-date-platinum-diamond-watch-watches-686_250x250@2x.jpg?v=1774720451',
+  ap1:  CDN+'pre-owned-audemars-piguet-code-11-59-watch-jewelry-685_250x250@2x.jpg?v=1768748024',
+  dj1:  CDN+'pre-owned-rolex-datejust-diamond-watch-232_250x250@2x.jpg?v=1774202049',
+  aq1:  CDN+'pre-owned-patek-philippe-aquanaut-watch-watches-153_250x250@2x.jpg?v=1773779656',
+  sky2: CDN+'pre-owned-rolex-sky-dweller-watch-watches-564_250x250@2x.jpg?v=1773779813',
+  aq2:  CDN+'pre-owned-patek-philippe-aquanaut-watch-watches-334_250x250@2x.jpg?v=1773779647',
+};
+
+// ── Jewellery — all distinct editorial / product shots ──
+// Empire editorial (sharp, premium campaign style)
+const E1 = CDN+'IMG_8311_480x480@2x.jpg?v=1768825579';   // engagement ring close-up
+const E2 = CDN+'IMG_8355_480x480@2x.png?v=1774324679';   // warm gold jewellery
+const E3 = CDN+'IMG_8081_480x480@2x.jpg?v=1768259630';   // jewellery on dark
+
+// Store / lifestyle
+const S1 = CDN+'about-us-897.webp';   // showroom interior
+const S2 = CDN+'about-us-762.webp';   // lifestyle shot 2
+const S3 = CDN+'about-us-412.webp';   // lifestyle shot 3
+
+// Services images — repurposed as styled product backdrops
+const SV1 = CDN+'services-658.jpg';
+const SV2 = CDN+'services-921.webp';
+const SV3 = CDN+'services-893.jpg';
+
+// Rotate jewellery images across collections so no two adjacent
+// products use the same image — using a pool approach
+
+const ER = {r1:E1,r2:E2,r3:E1,r4:E2,r5:E1,r6:E2,r7:E1,r8:E2};
+const PW = {w1:WI.dd1,w2:WI.dd2,w3:WI.ap1,w4:WI.dj1,w5:WI.aq1,w6:WI.sky2,w7:WI.aq2,w8:WI.sky1};
+const CWB = {c1:E2,c2:E1,c3:E2,c4:E1,c5:E2,c6:E1,c7:E2,c8:E1};
+const EWB = {ew1:E2,ew2:E1,ew3:E2,ew4:E1,ew5:E2,ew6:E1,ew7:E2,ew8:E1};
+const FR = {f1:E2,f2:E1,f3:E2,f4:E1,f5:E2,f6:E1,f7:E2,f8:E1};
+const GR = {g1:E1,g2:E2,g3:E1,g4:E2,g5:E1,g6:E2,g7:E1,g8:E2};
+const GNP = {n1:E3,n2:E2,n3:E3,n4:E2,n5:E3,n6:E2,n7:E3,n8:E2};
+const NP = {p1:E3,p2:E2,p3:E3,p4:E2,p5:E3,p6:E2,p7:E3,p8:E2};
+const BR = {br1:E2,br2:E3,br3:E2,br4:E3,br5:E2,br6:E3,br7:E2,br8:E3};
+const BA = {b1:E2,b2:E3,b3:E2,b4:E3,b5:E2,b6:E3,b7:E2,b8:E3};
+const EA = {e1:E3,e2:E2,e3:E3,e4:E2,e5:E3,e6:E2,e7:E3,e8:E2};
+
+
+function collectionPalette(collId){
+  const palettes={
+    'engagement-rings':['#2a1d14','#0f0b08'],
+    'classic-wedding-bands':['#2a2218','#0f0c09'],
+    'eternity-wedding-bands':['#261d17','#0d0a08'],
+    'wedding-bands':['#241b15','#0d0a08'],
+    'fashion-rings':['#2c1e18','#100b08'],
+    'gemstone-rings':['#1b2028','#0b0e14'],
+    'gemstone-necklaces-pendants':['#1a2024','#0a0d10'],
+    'necklaces-pendants':['#1c1a20','#0b0a0d'],
+    'bracelets':['#1b2024','#0b0e11'],
+    'bangles':['#241c12','#0f0a06'],
+    'earrings':['#221a14','#0e0a08'],
+    'pre-owned-watches':['#101214','#090a0c']
+  };
+  return palettes[collId]||['#1b1b1b','#0b0b0b'];
+}
+function categoryLabel(collId){
+  const labels={
+    'engagement-rings':'Engagement Ring',
+    'classic-wedding-bands':'Classic Band',
+    'eternity-wedding-bands':'Eternity Band',
+    'wedding-bands':'Wedding Band',
+    'fashion-rings':'Fashion Ring',
+    'gemstone-rings':'Gemstone Ring',
+    'gemstone-necklaces-pendants':'Gemstone Necklace',
+    'necklaces-pendants':'Necklace & Pendant',
+    'bracelets':'Bracelet',
+    'bangles':'Bangle',
+    'earrings':'Earrings',
+    'pre-owned-watches':'Watch'
+  };
+  return labels[collId]||'Fine Jewellery';
+}
+function mkCollectionImg(collId,title,variant=0){
+  const [c1,c2]=collectionPalette(collId);
+  const accent=variant%2===0?'#C6A96B':'#F5F3EF';
+  const svg=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000">
+    <defs>
+      <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="${c1}"/>
+        <stop offset="100%" stop-color="${c2}"/>
+      </linearGradient>
+      <radialGradient id="r" cx="50%" cy="40%" r="55%">
+        <stop offset="0%" stop-color="rgba(198,169,107,.18)"/>
+        <stop offset="100%" stop-color="rgba(198,169,107,0)"/>
+      </radialGradient>
+    </defs>
+    <rect width="800" height="1000" fill="url(#g)"/>
+    <rect width="800" height="1000" fill="url(#r)"/>
+    <circle cx="400" cy="390" r="150" fill="none" stroke="${accent}" stroke-opacity="0.25" stroke-width="2"/>
+    <circle cx="400" cy="390" r="105" fill="none" stroke="${accent}" stroke-opacity="0.12" stroke-width="2"/>
+    <text x="400" y="170" text-anchor="middle" fill="#C6A96B" font-size="22" letter-spacing="7" font-family="Georgia, serif">EMPIRE FINE JEWELLERS</text>
+    <text x="400" y="600" text-anchor="middle" fill="#F5F3EF" font-size="46" font-family="Georgia, serif">${(title||'Fine Jewellery').replace(/&/g,'and')}</text>
+    <text x="400" y="646" text-anchor="middle" fill="#8d8d8d" font-size="22" letter-spacing="4" font-family="Arial, sans-serif">${categoryLabel(collId).toUpperCase()}</text>
+  </svg>`;
+  return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg)}`;
+}
+
+const BANNERS = {
+  'engagement-rings': ER.r1,
+  'pre-owned-watches': PW.w1,
+  'classic-wedding-bands': CWB.c1,
+  'eternity-wedding-bands': EWB.ew1,
+  'fashion-rings': FR.f1,
+  'gemstone-rings': GR.g1,
+  'gemstone-necklaces-pendants': GNP.n1,
+  'necklaces-pendants': NP.p1,
+  'wedding-bands': E2,
+  'bracelets': BR.br1,
+  'bangles': BA.b1,
+  'earrings': EA.e1,
+};
+
+/* ═══════════════════════════════════════════════════
+   COLLECTIONS
+═══════════════════════════════════════════════════ */
+const COLLECTIONS = [
+  {id:'engagement-rings',            name:'Engagement Rings',                 cat:'Fine Jewellery', desc:'Discover our elegant design Engagement Rings at Empire Fine Jewellers Wilmslow. Please call for an appointment.', count:15},
+  {id:'pre-owned-watches',           name:'Pre-Owned Watches',                cat:'Horology',       desc:'Discover our pre-owned Rolex, Patek Philippe and Audemars Piguet watches at Empire Fine Jewellers Wilmslow.', count:52},
+  {id:'classic-wedding-bands',       name:'Classic Wedding Bands',            cat:'Wedding',        desc:'Classic wedding bands in platinum, yellow gold, white gold, rose gold and two-tone profiles.', count:11},
+  {id:'eternity-wedding-bands',      name:'Eternity and Wedding Bands',       cat:'Wedding',        desc:'Diamond-set eternity and wedding bands in platinum and gold with elegant timeless profiles.', count:29},
+  {id:'wedding-bands',               name:'Wedding Bands',                    cat:'Wedding',        desc:'Classic and eternity bands in 18ct gold, platinum and diamond-set styles for every taste.', count:18},
+  {id:'fashion-rings',               name:'Fashion Rings',                    cat:'Fine Jewellery', desc:'Spectacular diamond fashion rings with baguette, cocktail and statement-led silhouettes.', count:57},
+  {id:'gemstone-rings',              name:'Gemstone Rings',                   cat:'Fine Jewellery', desc:'Colourful gemstone rings featuring sapphire, ruby, emerald, tourmaline and pink topaz.', count:35},
+  {id:'gemstone-necklaces-pendants', name:'Gemstone Necklaces and Pendants',  cat:'Neckwear',       desc:'Diamond gemstone necklaces and pendants in ruby, sapphire and emerald-led designs.', count:39},
+  {id:'necklaces-pendants',          name:'Necklaces and Pendants',           cat:'Neckwear',       desc:'Diamond necklaces, pendants and tennis necklaces with elegant fine-jewellery styling.', count:81},
+  {id:'bracelets',                   name:'Bracelets',                        cat:'Wristwear',      desc:'Unique diamond and gemstone bracelets including tennis, baguette and coloured styles.', count:32},
+  {id:'bangles',                     name:'Bangles',                          cat:'Wristwear',      desc:'Diamond bangles and fine gold bangles in classic, pavé and statement-led wristwear styles.', count:32},
+  {id:'earrings',                    name:'Earrings',                         cat:'Fine Jewellery', desc:'Diamond studs, drops and gemstone earrings in elegant classic and statement styles.', count:44},
+];
+
+/* ═══════════════════════════════════════════════════
+   PRODUCTS — collection-specific demo data
+═══════════════════════════════════════════════════ */
+const PRODUCTS = {
+  'engagement-rings': [
+    {id:'er01',name:'Yellow Diamond Engagement Ring',sub:'Diamond · Engagement Ring',price:'£0.00',tag:'Sold Out',img:ER.r1,desc:'A yellow diamond engagement ring from the live Empire Fine Jewellers engagement rings collection.'},
+    {id:'er02',name:'Heart Shape Diamond Engagement Ring',sub:'Diamond · Engagement Ring',price:'£5,500.00',tag:'Sold Out',img:ER.r2,desc:'A heart shape diamond engagement ring listed on the live collection page.'},
+    {id:'er03',name:'Cushion Halo Diamond Engagement Ring',sub:'Diamond · Halo Ring',price:'£4,950.00',tag:'Sold Out',img:ER.r3,desc:'A cushion halo diamond engagement ring from the live collection.'},
+    {id:'er04',name:'Solitaire Diamond Engagement Ring',sub:'Diamond · Solitaire Ring',price:'£2,600.00',tag:'Sold Out',img:ER.r4,desc:'A solitaire diamond engagement ring from the live collection.'},
+    {id:'er05',name:'Round Cut Diamond Engagement Ring',sub:'Diamond · Round Cut Ring',price:'£3,750.00',tag:'Sold Out',img:ER.r5,desc:'A round cut diamond engagement ring from the live collection.'},
+    {id:'er06',name:'Emerald Cut Diamond Engagement Ring',sub:'Diamond · Emerald Cut Ring',price:'£6,500.00',tag:'Sold Out',img:ER.r6,desc:'An emerald cut diamond engagement ring from the live collection.'},
+    {id:'er07',name:'Pear Cut Diamond Engagement Ring',sub:'Diamond · Pear Cut Ring',price:'£6,750.00',tag:'Sold Out',img:ER.r7,desc:'A pear cut diamond engagement ring from the live collection.'},
+    {id:'er08',name:'Yellow Diamond Engagement Ring — Premium',sub:'Diamond · Engagement Ring',price:'£7,750.00',tag:'Featured',img:ER.r8,desc:'A premium yellow diamond engagement ring slot for the demo.'},
+  ],
+  'pre-owned-watches': [
+    {id:'pw01',name:'Pre-Owned Rolex Cellini Watch',sub:'Rolex · Pre-Owned',price:'£0.00',tag:'Sold Out',img:PW.w1,desc:'A pre-owned Rolex Cellini watch from the Empire Fine Jewellers collection.'},
+    {id:'pw02',name:'Pre-Owned Rolex GMT-Master II Watch',sub:'Rolex · Pre-Owned',price:'£0.00',tag:'Sold Out',img:PW.w2,desc:'A pre-owned Rolex GMT-Master II watch from the Empire Fine Jewellers collection.'},
+    {id:'pw03',name:'Pre-Owned Rolex Cosmograph Daytona Watch',sub:'Rolex · Pre-Owned',price:'£0.00',tag:'Sold Out',img:PW.w3,desc:'A pre-owned Rolex Cosmograph Daytona watch from the Empire Fine Jewellers collection.'},
+    {id:'pw04',name:'Pre-Owned Rolex Submariner Watch',sub:'Rolex · Pre-Owned',price:'£0.00',tag:'Sold Out',img:PW.w4,desc:'A pre-owned Rolex Submariner watch from the Empire Fine Jewellers collection.'},
+    {id:'pw05',name:'Pre-Owned Rolex Cosmograph Daytona Watch',sub:'Rolex · Pre-Owned',price:'£0.00',tag:'Sold Out',img:PW.w5,desc:'A second Rolex Cosmograph Daytona listing from the live collection page.'},
+    {id:'pw06',name:'Pre-Owned Rolex GMT-Master II Sprite',sub:'Rolex · Pre-Owned',price:'£0.00',tag:'Sold Out',img:PW.w6,desc:'A pre-owned Rolex GMT-Master II Sprite from the Empire Fine Jewellers collection.'},
+    {id:'pw07',name:'Pre-Owned Rolex Datejust Diamond Watch',sub:'Rolex · Pre-Owned',price:'£0.00',tag:'Sold Out',img:PW.w7,desc:'A pre-owned Rolex Datejust Diamond watch from the Empire Fine Jewellers collection.'},
+    {id:'pw08',name:'Pre-Owned Rolex Sky-Dweller Watch',sub:'Rolex · Pre-Owned',price:'£0.00',tag:'Featured',img:PW.w8,desc:'A premium pre-owned watch slot for the demo.'},
+  ],
+  'classic-wedding-bands': [
+    {id:'cwb01',name:'Platinum Medium Flat Court Wedding Rings',sub:'Platinum · Wedding Ring',price:'£0.00',tag:'Sold Out',img:CWB.c1,desc:'A platinum medium flat court wedding ring from the Classic Wedding Bands collection.'},
+    {id:'cwb02',name:'18K Yellow Gold Medium Flat Court Wedding Ring',sub:'18K Yellow Gold · Wedding Ring',price:'£0.00',tag:'Sold Out',img:CWB.c2,desc:'An 18K yellow gold medium flat court wedding ring from the live collection.'},
+    {id:'cwb03',name:'18K White Gold Medium Flat Court Wedding Ring',sub:'18K White Gold · Wedding Ring',price:'£0.00',tag:'Sold Out',img:CWB.c3,desc:'An 18K white gold medium flat court wedding ring from the live collection.'},
+    {id:'cwb04',name:'2 Tone Wedding Bands',sub:'Two Tone · Wedding Band',price:'£0.00',tag:'Sold Out',img:CWB.c4,desc:'A two tone wedding band from the live collection.'},
+    {id:'cwb05',name:'Rose Gold Wedding Bands',sub:'Rose Gold · Wedding Band',price:'£0.00',tag:'Sold Out',img:CWB.c5,desc:'A rose gold wedding band from the live collection.'},
+    {id:'cwb06',name:'Classic Wedding Bands',sub:'Classic · Wedding Band',price:'£0.00',tag:'Sold Out',img:CWB.c6,desc:'A classic wedding band style from the live collection.'},
+    {id:'cwb07',name:'Platinum Classic Wedding Bands',sub:'Platinum · Wedding Band',price:'£0.00',tag:'Sold Out',img:CWB.c7,desc:'A platinum classic wedding band from the live collection.'},
+    {id:'cwb08',name:'Classic Wedding Bands — Premium Profile',sub:'Classic · Wedding Band',price:'Price on Application',tag:'Featured',img:CWB.c8,desc:'An additional premium wedding band slot to help the demo category feel complete.'},
+  ],
+  'eternity-wedding-bands': [
+    {id:'ewb01',name:'Emerald Cut Eternity Band',sub:'Diamond · Eternity Band',price:'£0.00',tag:'Sold Out',img:EWB.ew1,desc:'An emerald cut eternity band from the live collection.'},
+    {id:'ewb02',name:'Diamond Baguette Wedding Ring',sub:'Diamond · Wedding Ring',price:'£0.00',tag:'Sold Out',img:EWB.ew2,desc:'A diamond baguette wedding ring from the live collection.'},
+    {id:'ewb03',name:'Diamond Wedding Ring',sub:'Diamond · Wedding Ring',price:'£0.00',tag:'Sold Out',img:EWB.ew3,desc:'A diamond wedding ring from the live collection.'},
+    {id:'ewb04',name:'Princess Cut Diamond Platinum Eternity Ring',sub:'Princess Cut · Platinum Eternity Ring',price:'£0.00',tag:'Sold Out',img:EWB.ew4,desc:'A princess cut diamond platinum eternity ring from the live collection.'},
+    {id:'ewb05',name:'Diamond Double Row Eternity Band',sub:'Diamond · Eternity Band',price:'£0.00',tag:'Sold Out',img:EWB.ew5,desc:'A diamond double row eternity band from the live collection.'},
+    {id:'ewb06',name:'Baguette Diamond Band',sub:'Baguette Diamond · Band',price:'£0.00',tag:'Sold Out',img:EWB.ew6,desc:'A baguette diamond band from the live collection.'},
+    {id:'ewb07',name:'Baguette Diamond Eternity Band',sub:'Baguette Diamond · Eternity Band',price:'£0.00',tag:'Sold Out',img:EWB.ew7,desc:'A baguette diamond eternity band from the live collection.'},
+    {id:'ewb08',name:'Platinum Diamond Eternity Band',sub:'Platinum · Diamond Eternity Band',price:'£0.00',tag:'Featured',img:EWB.ew8,desc:'A platinum diamond eternity band from the live collection, used as a featured slot for the demo.'},
+  ],
+  'wedding-bands': [
+    {id:'wb01',name:'Diamond Pavé Wedding Band',sub:'Diamond · Wedding Band',price:'Price on Application',tag:'Featured',img:E2,desc:'A classic pavé-set wedding band with a timeless elegant profile.'},
+    {id:'wb02',name:'Platinum Court Wedding Band',sub:'Platinum · Court Profile',price:'Price on Application',tag:'',img:E1,desc:'A platinum court wedding band designed for timeless everyday wear.'},
+    {id:'wb03',name:'Yellow Gold Wedding Band',sub:'18ct Yellow Gold · Band',price:'Price on Application',tag:'',img:E2,desc:'A warm yellow gold wedding band with a clean polished finish.'},
+    {id:'wb04',name:'White Gold Diamond Band',sub:'18ct White Gold · Diamond',price:'Price on Application',tag:'',img:E1,desc:'A white gold wedding band with a refined line of diamonds.'},
+    {id:'wb05',name:'Rose Gold Wedding Band',sub:'18ct Rose Gold · Band',price:'Price on Application',tag:'',img:E2,desc:'A rose gold wedding band with a soft luxurious glow.'},
+    {id:'wb06',name:'Platinum Flat Band',sub:'Platinum · Flat Profile',price:'Price on Application',tag:'',img:E1,desc:'A contemporary flat-profile platinum wedding band.'},
+    {id:'wb07',name:'Diamond Half Eternity Band',sub:'Diamond · Half Eternity',price:'Price on Application',tag:'',img:E2,desc:'A diamond half-eternity band ideal for stacking or wedding wear.'},
+    {id:'wb08',name:'Wedding Band — Premium',sub:'Wedding · Signature Profile',price:'Price on Application',tag:'New',img:E1,desc:'A premium signature wedding band slot for the demo.'},
+  ],
+  'fashion-rings': [
+    {id:'fr01',name:'Baguette Diamond Ring',sub:'Diamond · Fashion Ring',price:'£0.00',tag:'Sold Out',img:FR.f1,desc:'A baguette diamond ring from the live Fashion Rings collection.'},
+    {id:'fr02',name:'Baguette Diamond Ring',sub:'Diamond · Fashion Ring',price:'£0.00',tag:'Sold Out',img:FR.f2,desc:'A second baguette diamond ring listing from the live collection.'},
+    {id:'fr03',name:'Diamond Cocktail Ring',sub:'Diamond · Cocktail Ring',price:'£0.00',tag:'Sold Out',img:FR.f3,desc:'A diamond cocktail ring from the live collection.'},
+    {id:'fr04',name:'Snake Baguette Diamond Ring',sub:'Diamond · Fashion Ring',price:'£0.00',tag:'Sold Out',img:FR.f4,desc:'A snake baguette diamond ring from the live collection.'},
+    {id:'fr05',name:'Baguette Diamond Ring',sub:'Diamond · Fashion Ring',price:'£0.00',tag:'Sold Out',img:FR.f5,desc:'Another baguette diamond ring listing used to reflect the live collection variety.'},
+    {id:'fr06',name:'Diamond Baguette Ring',sub:'Diamond · Fashion Ring',price:'£0.00',tag:'Sold Out',img:FR.f6,desc:'A diamond baguette ring from the live collection.'},
+    {id:'fr07',name:'Diamond Cocktail Ring',sub:'Diamond · Cocktail Ring',price:'£0.00',tag:'Sold Out',img:FR.f7,desc:'A second diamond cocktail ring listing from the live collection.'},
+    {id:'fr08',name:'Baguette Diamond Ring — Premium',sub:'Diamond · Fashion Ring',price:'Price on Application',tag:'Featured',img:FR.f8,desc:'A premium fashion-ring slot to help the demo category feel complete and polished.'},
+  ],
+  'gemstone-rings': [
+    {id:'gr01',name:'Diamond Pink Topaz Ring',sub:'Pink Topaz & Diamond · Ring',price:'£0.00',tag:'Sold Out',img:GR.g1,desc:'A diamond pink topaz ring from the live Gemstone Rings collection.'},
+    {id:'gr02',name:'Diamond Sapphire Ring',sub:'Sapphire & Diamond · Ring',price:'£0.00',tag:'Sold Out',img:GR.g2,desc:'A diamond sapphire ring from the live collection.'},
+    {id:'gr03',name:'Emerald Cut Ruby Diamond Ring',sub:'Ruby & Diamond · Ring',price:'£0.00',tag:'Sold Out',img:GR.g3,desc:'An emerald cut ruby diamond ring from the live collection.'},
+    {id:'gr04',name:'Diamond Sapphire Ring',sub:'Sapphire & Diamond · Ring',price:'£0.00',tag:'Sold Out',img:GR.g4,desc:'A second diamond sapphire ring listing from the live collection.'},
+    {id:'gr05',name:'Diamond Sapphire Ring',sub:'Sapphire & Diamond · Ring',price:'£0.00',tag:'Sold Out',img:GR.g5,desc:'Another diamond sapphire ring listing used to reflect the live collection variety.'},
+    {id:'gr06',name:'Diamond Tourmaline Ring',sub:'Tourmaline & Diamond · Ring',price:'£0.00',tag:'Sold Out',img:GR.g6,desc:'A diamond tourmaline ring from the live collection.'},
+    {id:'gr07',name:'Emerald Diamond Ring',sub:'Emerald & Diamond · Ring',price:'£0.00',tag:'Sold Out',img:GR.g7,desc:'An emerald diamond ring from the live collection.'},
+    {id:'gr08',name:'Diamond Sapphire Ring — Premium',sub:'Sapphire & Diamond · Ring',price:'Price on Application',tag:'Featured',img:GR.g8,desc:'A premium gemstone-ring slot to help the demo category feel complete and polished.'},
+  ],
+  'gemstone-necklaces-pendants': [
+    {id:'gnp01',name:'Diamond Ruby Necklace',sub:'Ruby & Diamond · Necklace',price:'£0.00',tag:'Sold Out',img:GNP.n1,desc:'A diamond ruby necklace from the live Gemstone Necklaces and Pendants collection.'},
+    {id:'gnp02',name:'Rainbow Sapphire Diamond Necklace',sub:'Rainbow Sapphire & Diamond · Necklace',price:'£0.00',tag:'Sold Out',img:GNP.n2,desc:'A rainbow sapphire diamond necklace from the live collection.'},
+    {id:'gnp03',name:'Diamond Sapphire Necklace',sub:'Sapphire & Diamond · Necklace',price:'£0.00',tag:'Sold Out',img:GNP.n3,desc:'A diamond sapphire necklace from the live collection.'},
+    {id:'gnp04',name:'Diamond Emerald Necklace',sub:'Emerald & Diamond · Necklace',price:'£1,750.00',tag:'',img:GNP.n4,desc:'A diamond emerald necklace listed on the live collection page.'},
+    {id:'gnp05',name:'Diamond Emerald Necklace',sub:'Emerald & Diamond · Necklace',price:'£1,200.00',tag:'',img:GNP.n5,desc:'A diamond emerald necklace listed on the live collection page.'},
+    {id:'gnp06',name:'Diamond Emerald Necklace',sub:'Emerald & Diamond · Necklace',price:'£1,100.00',tag:'',img:GNP.n6,desc:'A diamond emerald necklace listed on the live collection page.'},
+    {id:'gnp07',name:'Diamond Emerald Necklace',sub:'Emerald & Diamond · Necklace',price:'£1,490.00',tag:'',img:GNP.n7,desc:'A diamond emerald necklace listed on the live collection page.'},
+    {id:'gnp08',name:'Diamond Sapphire Necklace — Premium',sub:'Sapphire & Diamond · Necklace',price:'£850.00',tag:'Featured',img:GNP.n8,desc:'A premium diamond sapphire necklace slot based on the live collection page.'},
+  ],
+  'necklaces-pendants': [
+    {id:'np01',name:'Diamond Tennis Necklace',sub:'Diamond · Necklace',price:'£0.00',tag:'Sold Out',img:NP.p1,desc:'A diamond tennis necklace from the live Necklaces and Pendants collection.'},
+    {id:'np02',name:'Diamond Pave Tennis Necklace',sub:'Diamond · Necklace',price:'£0.00',tag:'Sold Out',img:NP.p2,desc:'A diamond pavé tennis necklace from the live collection.'},
+    {id:'np03',name:'Diamond Tennis Necklace',sub:'Diamond · Necklace',price:'£0.00',tag:'Sold Out',img:NP.p3,desc:'A second diamond tennis necklace listing from the live collection.'},
+    {id:'np04',name:'Diamond Tennis Necklace',sub:'Diamond · Necklace',price:'£0.00',tag:'Sold Out',img:NP.p4,desc:'Another diamond tennis necklace listing used to reflect the live collection variety.'},
+    {id:'np05',name:'Diamond Necklace',sub:'Diamond · Necklace',price:'£0.00',tag:'Sold Out',img:NP.p5,desc:'A diamond necklace from the live collection.'},
+    {id:'np06',name:'Baguette Diamond Necklace',sub:'Diamond · Necklace',price:'£1,199.00',tag:'',img:NP.p6,desc:'A baguette diamond necklace listed on the live collection page.'},
+    {id:'np07',name:'Diamond Emerald Necklace',sub:'Emerald & Diamond · Necklace',price:'£1,750.00',tag:'',img:NP.p7,desc:'A diamond emerald necklace listed on the live collection page.'},
+    {id:'np08',name:'Diamond Tennis Necklace — Premium',sub:'Diamond · Necklace',price:'Price on Application',tag:'Featured',img:NP.p8,desc:'A premium necklace slot to help the demo category feel complete and polished.'},
+  ],
+  'bracelets': [
+    {id:'br01',name:'Diamond Bracelet',sub:'Bracelet · Fine Jewellery',price:'£0.00',tag:'Sold Out',img:BR.br1,desc:'A refined diamond bracelet from the live bracelets collection.'},
+    {id:'br02',name:'Diamond Baguette Bracelet',sub:'Bracelet · Fine Jewellery',price:'£0.00',tag:'Sold Out',img:BR.br2,desc:'A baguette diamond bracelet with a clean luxury finish.'},
+    {id:'br03',name:'Rainbow Diamond Tennis Bracelet',sub:'Bracelet · Fine Jewellery',price:'£0.00',tag:'Sold Out',img:BR.br3,desc:'A rainbow diamond tennis bracelet with strong colour and premium wristwear appeal.'},
+    {id:'br04',name:'Clover Style Ruby Bracelet',sub:'Bracelet · Ruby',price:'£0.00',tag:'Sold Out',img:BR.br4,desc:'A clover style ruby bracelet from the live bracelets collection.'},
+    {id:'br05',name:'Baguette Diamond Bracelet',sub:'Bracelet · Fine Jewellery',price:'£1,500.00',tag:'',img:BR.br5,desc:'A baguette diamond bracelet listed on the live collection page.'},
+    {id:'br06',name:'Baguette Diamond Bracelet',sub:'Bracelet · Fine Jewellery',price:'£1,450.00',tag:'',img:BR.br6,desc:'A second baguette diamond bracelet listing from the live collection.'},
+    {id:'br07',name:'Baguette Diamond Bracelet',sub:'Bracelet · Fine Jewellery',price:'£2,250.00',tag:'',img:BR.br7,desc:'A premium baguette diamond bracelet from the live collection.'},
+    {id:'br08',name:'Bracelet — Editorial',sub:'Bracelet · Fine Jewellery',price:'Price on Application',tag:'Featured',img:BR.br8,desc:'An additional premium bracelet visual so the category feels complete in the demo.'},
+  ],
+  'bangles': [
+    {id:'ba01',name:'Yellow Diamond Bangle',sub:'18K White & Yellow Gold · Diamond',price:'£0.00',tag:'Sold Out',img:BA.b1,desc:'A yellow diamond bangle from the live bangles collection.'},
+    {id:'ba02',name:'Twist Style Diamond Bangle',sub:'Diamond Bangle',price:'£0.00',tag:'Sold Out',img:BA.b2,desc:'A twist-style diamond bangle with a sculptural silhouette and elevated luxury finish.'},
+    {id:'ba03',name:'Diamond Beaded Bangle',sub:'Diamond Bangle',price:'£0.00',tag:'Sold Out',img:BA.b3,desc:'A refined diamond beaded bangle with elegant texture and classic wristwear presence.'},
+    {id:'ba04',name:'Diamond Baguette Bangle',sub:'Diamond Bangle',price:'£0.00',tag:'Sold Out',img:BA.b4,desc:'A diamond baguette bangle with architectural lines and a premium high-jewellery feel.'},
+    {id:'ba05',name:'Diamond Pave Bangle',sub:'Diamond Bangle',price:'£0.00',tag:'Sold Out',img:BA.b5,desc:'A diamond pavé-set bangle designed for brilliance and elegant impact.'},
+    {id:'ba06',name:'Baguette Diamond Bangle',sub:'Diamond Bangle',price:'£0.00',tag:'Sold Out',img:BA.b6,desc:'A statement bangle with baguette diamond detailing and a clean luxury profile.'},
+    {id:'ba07',name:'Diamond Bangle',sub:'Fine Jewellery',price:'£5,500.00',tag:'',img:BA.b7,desc:'A fine diamond bangle from the live collection.'},
+    {id:'ba08',name:'Diamond Bangle — Premium',sub:'Fine Jewellery',price:'Price on Application',tag:'Featured',img:BA.b8,desc:'An additional premium bangle visual so the category feels complete in the demo.'},
+  ],
+  'earrings': [
+    {id:'ea01',name:'Diamond Cluster Earrings',sub:'Diamond · Earrings',price:'£0.00',tag:'Sold Out',img:EA.e1,desc:'A pair of diamond cluster earrings from the live earrings collection.'},
+    {id:'ea02',name:'Ruby Halo Earrings',sub:'Ruby & Diamond · Earrings',price:'£0.00',tag:'Sold Out',img:EA.e2,desc:'Ruby halo earrings with a classic fine jewellery silhouette.'},
+    {id:'ea03',name:'Diamond Emerald Drop Earrings',sub:'Emerald & Diamond · Drop Earrings',price:'£0.00',tag:'Sold Out',img:EA.e3,desc:'Diamond emerald drop earrings from the live collection.'},
+    {id:'ea04',name:'Diamond Earrings',sub:'Diamond · Earrings',price:'£0.00',tag:'Sold Out',img:EA.e4,desc:'A refined pair of diamond earrings from the live collection.'},
+    {id:'ea05',name:'Rose Gold Ruby & Diamond Earrings',sub:'Rose Gold · Ruby & Diamond',price:'£0.00',tag:'Sold Out',img:EA.e5,desc:'Rose gold ruby and diamond earrings from the live collection.'},
+    {id:'ea06',name:'Turquoise and Diamond Earrings',sub:'Turquoise & Diamond · Earrings',price:'£0.00',tag:'Sold Out',img:EA.e6,desc:'Turquoise and diamond earrings with a vibrant gemstone-led look.'},
+    {id:'ea07',name:'Diamond Pear Drop Earrings',sub:'Diamond · Drop Earrings',price:'£0.00',tag:'Sold Out',img:EA.e7,desc:'Diamond pear drop earrings from the live collection.'},
+    {id:'ea08',name:'Rainbow Sapphire & Diamond Earrings',sub:'Rainbow Sapphire & Diamond',price:'£0.00',tag:'Featured',img:EA.e8,desc:'Rainbow sapphire and diamond earrings added to help the demo category feel complete and varied.'},
+  ],
+};
+
+
+
+/* ═══════════════════════════════════════════════════
+   IMAGE OVERRIDES — remove old pooled jewellery behaviour
+═══════════════════════════════════════════════════ */
+Object.keys(PRODUCTS).forEach(collId=>{
+  if(collId==='pre-owned-watches') return;
+  PRODUCTS[collId]=(PRODUCTS[collId]||[]).map((p,i)=>({
+    ...p,
+    img: mkCollectionImg(collId,p.name,i)
+  }));
+  const coll=COLLECTIONS.find(c=>c.id===collId);
+  BANNERS[collId]=mkCollectionImg(collId,coll?coll.name:collId,99);
+});
+
+/* ═══════════════════════════════════════════════════
+   STATE & PAGINATION
+═══════════════════════════════════════════════════ */
+const PER_PAGE = 8;
+let currentPage='home', currentCollId='engagement-rings', currentProduct=null;
+let currentFilter='all', currentSort='featured', currentListPage=1, filteredProds=[];
+
+/* ═══════════════════════════════════════════════════
+   ROUTER
+═══════════════════════════════════════════════════ */
+function navigate(page,param){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.nav-links button').forEach(b=>{
+    b.classList.remove('active');
+    if(b.dataset.page===page) b.classList.add('active');
+    if((page==='listing'||page==='product')&&b.dataset.page==='collections') b.classList.add('active');
+  });
+  currentPage=page;
+  window.scrollTo({top:0,behavior:'instant'});
+  if(page==='listing'){
+    currentCollId=param||'engagement-rings';
+    currentFilter='all'; currentSort='featured'; currentListPage=1;
+    buildListing();
+    document.getElementById('page-listing').classList.add('active');
+    document.querySelector('[data-page="collections"]').classList.add('active');
+  } else if(page==='product'){
+    currentProduct=param;
+    buildProduct();
+    document.getElementById('page-product').classList.add('active');
+    document.querySelector('[data-page="collections"]').classList.add('active');
+  } else {
+    document.getElementById('page-'+page).classList.add('active');
+  }
+  setTimeout(initReveal,60);
+}
+window.navigateProduct=function(p,collId){navigate('product',{...p,_collId:collId});};
+
+/* ═══════════════════════════════════════════════════
+   PRODUCT CARD
+═══════════════════════════════════════════════════ */
+function prodCard(p,collId,delay=0){
+  const pJ=JSON.stringify(p).replace(/'/g,"&#39;");
+  const cJ=JSON.stringify(collId);
+  // fallback class by collection
+  const fbMap={'engagement-rings':'fb-er','pre-owned-watches':'fb-pw','classic-wedding-bands':'fb-wb','eternity-wedding-bands':'fb-wb','wedding-bands':'fb-wb','fashion-rings':'fb-er','gemstone-rings':'fb-er','gemstone-necklaces-pendants':'fb-np','necklaces-pendants':'fb-np','bracelets':'fb-bb','bangles':'fb-bb','earrings':'fb-ea'};
+  const fb=fbMap[collId]||'fb-er';
+  return `<div class="prod-card rv d${delay%4}" onclick='navigateProduct(${pJ},${cJ})'>
+    <div class="prod-img">
+      ${p.img
+        ?`<img src="${p.img}" alt="${p.name}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+         <div class="prod-img-fb ${fb}" style="display:none;"></div>`
+        :`<div class="prod-img-fb ${fb}"></div>`}
+      ${p.tag?`<span class="prod-tag">${p.tag}</span>`:''}
+      <div class="prod-act"><span>View Details</span></div>
+    </div>
+    <p class="prod-sub">${p.sub}</p>
+    <p class="prod-nm">${p.name}</p>
+    <p class="prod-pr">${p.price}</p>
+  </div>`;
+}
+
+/* ═══════════════════════════════════════════════════
+   MARQUEE
+═══════════════════════════════════════════════════ */
+function buildMarquee(){
+  const items=['GIA Certified Diamonds','Pre-Owned Rolex','Patek Philippe','Audemars Piguet','Bespoke Design','Engagement Rings','NAJ Member','Wilmslow, Cheshire','Free Cleaning & Inspection','Wedding Bands','Fine Jewellery'];
+  const d=[...items,...items];
+  document.getElementById('mq1').innerHTML=d.map(i=>`<span class="mq-i">${i}</span><span class="mq-d">◆</span>`).join('');
+}
+
+/* ═══════════════════════════════════════════════════
+   HOME WATCHES — 4 featured, all distinct watch images
+═══════════════════════════════════════════════════ */
+function buildHomeWatches(){
+  const picks=['pw01','pw03','pw06','pw12'];
+  const prods=PRODUCTS['pre-owned-watches'].filter(p=>picks.includes(p.id));
+  document.getElementById('home-watches').innerHTML=prods.map((p,i)=>prodCard(p,'pre-owned-watches',i)).join('');
+}
+
+/* ═══════════════════════════════════════════════════
+   COLLECTIONS GRID — each with its correct banner image
+═══════════════════════════════════════════════════ */
+function buildCollectionsGrid(){
+  document.getElementById('collections-grid').innerHTML=COLLECTIONS.map((c,i)=>{
+    const img=BANNERS[c.id]||E1;
+    return `<div class="col-card rv d${i%3}" style="min-height:400px;" onclick="navigate('listing','${c.id}')">
+      <div class="bg"><img src="${img}" alt="${c.name}" loading="lazy" onerror="this.parentElement.style.background='#18150f'"></div>
+      <div class="col-ov"></div>
+      <div class="col-info">
+        <p class="col-cat">${c.cat}</p>
+        <p class="col-nm">${c.name}</p>
+        <p style="font-size:.62rem;color:rgba(245,243,239,.42);margin-bottom:14px;line-height:1.7;">${c.desc}</p>
+        <span class="col-lnk"><span class="col-bar"></span>View ${c.count} pieces</span>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function buildFooterCollections(){
+  document.getElementById('footer-coll').innerHTML=COLLECTIONS.map(c=>`<li><button onclick="navigate('listing','${c.id}')">${c.name}</button></li>`).join('');
+}
+
+/* ═══════════════════════════════════════════════════
+   LISTING PAGE
+═══════════════════════════════════════════════════ */
+function buildListing(){
+  const coll=COLLECTIONS.find(c=>c.id===currentCollId)||COLLECTIONS[0];
+  const words=coll.name.split(' '); const last=words.pop(); const first=words.join(' ');
+  const bannerImg=BANNERS[coll.id]||E1;
+
+  document.getElementById('listing-banner-wrap').innerHTML=`
+    <div class="listing-banner">
+      <img src="${bannerImg}" alt="${coll.name}" onerror="this.parentElement.style.background='#141414'">
+      <div class="listing-banner-ov"></div>
+      <div class="listing-banner-content">
+        <div style="font-size:.55rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,243,239,.46);margin-bottom:16px;display:flex;align-items:center;gap:10px;">
+          <button class="bc-btn" onclick="navigate('collections')" style="color:rgba(245,243,239,.46);">Collections</button>
+          <span style="color:rgba(198,169,107,.32);">›</span>
+          <span style="color:var(--gold);">${coll.name}</span>
+        </div>
+        <h1 class="fu" style="font-family:'Cormorant Garamond',serif;font-size:clamp(2.8rem,4.5vw,5.2rem);font-weight:300;color:var(--ivory);">
+          ${first} <em style="font-style:italic;color:var(--gold);">${last}</em>
+        </h1>
+      </div>
+    </div>`;
+
+  document.getElementById('listing-header').innerHTML=`
+    <p style="font-size:.72rem;line-height:1.85;color:var(--grey);max-width:560px;">${coll.desc}</p>`;
+
+  const tags=['all','new','bestseller','limited','bespoke','pre-owned'];
+  document.getElementById('listing-filters').innerHTML=tags.map(f=>`
+    <button class="filter-pill${f==='all'?' active':''}" onclick="applyFilter('${f}')">${f==='all'?'All Pieces':f.charAt(0).toUpperCase()+f.slice(1)}</button>`).join('');
+
+  applyFilterSort();
+}
+
+function applyFilter(f){
+  currentFilter=f; currentListPage=1;
+  document.querySelectorAll('.filter-pill').forEach(p=>{
+    p.classList.toggle('active',p.textContent.toLowerCase()===(f==='all'?'all pieces':f));
+  });
+  applyFilterSort();
+}
+
+function applySort(){
+  currentSort=document.getElementById('listing-sort')?.value||'featured';
+  currentListPage=1; applyFilterSort();
+}
+
+function applyFilterSort(){
+  const all=PRODUCTS[currentCollId]||[];
+  let r=currentFilter==='all'?[...all]:all.filter(p=>p.tag&&p.tag.toLowerCase()===currentFilter);
+  if(currentSort==='az') r.sort((a,b)=>a.name.localeCompare(b.name));
+  else if(currentSort==='za') r.sort((a,b)=>b.name.localeCompare(a.name));
+  else if(currentSort==='new') r=[...r.filter(p=>p.tag==='New'),...r.filter(p=>p.tag!=='New')];
+  filteredProds=r;
+  renderListingPage();
+}
+
+function renderListingPage(){
+  const total=filteredProds.length;
+  const totalPages=Math.max(1,Math.ceil(total/PER_PAGE));
+  const start=(currentListPage-1)*PER_PAGE;
+  const pageProds=filteredProds.slice(start,start+PER_PAGE);
+  const countEl=document.getElementById('listing-count');
+  if(countEl) countEl.textContent=total
+    ?`Showing ${start+1}–${Math.min(start+PER_PAGE,total)} of ${total} pieces`
+    :'0 pieces';
+
+  const wrap=document.getElementById('listing-grid-wrap');
+  if(!wrap) return;
+
+  if(!pageProds.length){
+    wrap.innerHTML=`<div style="grid-column:1/-1;text-align:center;padding:80px 0 40px;color:var(--grey);"><p style="font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;">No pieces match this filter</p></div>${buildPagination(1,1)}`;
+    buildOtherCollections();
+    return;
+  }
+
+  wrap.innerHTML=`
+    <div class="prod-grid-wrap" style="display:grid;grid-template-columns:repeat(4,1fr);gap:22px;">
+      ${pageProds.map((p,i)=>prodCard(p,currentCollId,i)).join('')}
+    </div>
+    ${buildPagination(currentListPage,totalPages)}`;
+
+  setTimeout(initReveal,50);
+  buildOtherCollections();
+}
+
+function buildOtherCollections(){
+  const el=document.getElementById('listing-other');
+  if(!el) return;
+  el.innerHTML=COLLECTIONS.filter(c=>c.id!==currentCollId).map(c=>{
+    const img=BANNERS[c.id]||E1;
+    return `<button class="other-coll-btn" onclick="navigate('listing','${c.id}')">
+      <img class="ocb-img" src="${img}" alt="${c.name}" onerror="this.style.display='none'">
+      <div class="ocb-text">
+        <div style="font-size:.52rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:4px;">${c.cat}</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:.96rem;color:var(--ivory);">${c.name}</div>
+      </div>
+    </button>`;
+  }).join('');
+}
+
+/* ═══════════════════════════════════════════════════
+   PAGINATION
+═══════════════════════════════════════════════════ */
+function buildPagination(cur,total){
+  if(total<=1) return '<div style="height:48px;"></div>';
+  let pages=[];
+  if(total<=7){for(let i=1;i<=total;i++) pages.push(i);}
+  else if(cur<=4){pages=[1,2,3,4,5,'…',total];}
+  else if(cur>=total-3){pages=[1,'…',total-4,total-3,total-2,total-1,total];}
+  else{pages=[1,'…',cur-1,cur,cur+1,'…',total];}
+  const prev=cur>1
+    ?`<button class="pg-btn pg-arrow" onclick="goPage(${cur-1})">← Prev</button>`
+    :`<button class="pg-btn pg-arrow" disabled>← Prev</button>`;
+  const next=cur<total
+    ?`<button class="pg-btn pg-arrow" onclick="goPage(${cur+1})">Next →</button>`
+    :`<button class="pg-btn pg-arrow" disabled>Next →</button>`;
+  const nums=pages.map(p=>p==='…'
+    ?`<span class="pg-sep">…</span>`
+    :`<button class="pg-btn${p===cur?' active':''}" onclick="goPage(${p})">${p}</button>`).join('');
+  return `<div class="pagination">${prev}${nums}${next}</div>`;
+}
+
+function goPage(n){
+  currentListPage=n;
+  renderListingPage();
+  document.getElementById('listing-banner-wrap')?.scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+/* ═══════════════════════════════════════════════════
+   PRODUCT DETAIL
+═══════════════════════════════════════════════════ */
+function buildProduct(){
+  const p=currentProduct; if(!p) return;
+  const collId=p._collId||currentCollId;
+  const coll=COLLECTIONS.find(c=>c.id===collId)||COLLECTIONS[0];
+  const related=(PRODUCTS[collId]||[]).filter(r=>r.id!==p.id).slice(0,4);
+  const mainImg=p.img||BANNERS[collId]||E1;
+  // Three thumbnails: main image, collection banner and repeated main image
+  const pool=[mainImg, mainImg, mainImg];
+
+  document.getElementById('product-bc').innerHTML=`
+    <div style="font-size:.54rem;letter-spacing:.2em;text-transform:uppercase;color:var(--grey);padding-top:22px;padding-bottom:36px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+      <button class="bc-btn" onclick="navigate('collections')">Collections</button>
+      <span style="color:rgba(198,169,107,.28);">›</span>
+      <button class="bc-btn" onclick="navigate('listing','${collId}')">${coll.name}</button>
+      <span style="color:rgba(198,169,107,.28);">›</span>
+      <span style="color:var(--gold);">${p.name}</span>
+    </div>`;
+
+  const thumbH=pool.map((src,n)=>`
+    <div class="thumb${n===0?' active':''}" id="thumb${n}" onclick="selThumb(${n},'${src}')">
+      <img src="${src}" alt="" loading="lazy" onerror="this.style.display='none'">
+    </div>`).join('');
+
+  document.getElementById('product-main').innerHTML=`
+    <div class="fu">
+      <div style="position:relative;aspect-ratio:4/5;background:var(--md);overflow:hidden;margin-bottom:3px;">
+        <img id="prod-main-img" src="${mainImg}" alt="${p.name}"
+          style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.16,1,.3,1);"
+          onerror="this.style.display='none';document.getElementById('prod-fb').style.display='flex'">
+        <div id="prod-fb" class="${(()=>{const m={'engagement-rings':'fb-er','pre-owned-watches':'fb-pw','classic-wedding-bands':'fb-wb','eternity-wedding-bands':'fb-wb','wedding-bands':'fb-wb','fashion-rings':'fb-er','gemstone-rings':'fb-er','gemstone-necklaces-pendants':'fb-np','necklaces-pendants':'fb-np','bracelets':'fb-bb','bangles':'fb-bb','earrings':'fb-ea'};return m[collId]||'fb-er'})()}" style="position:absolute;inset:0;display:none;align-items:center;justify-content:center;"></div>
+        ${p.tag?`<div style="position:absolute;top:20px;left:20px;font-size:.5rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);background:rgba(8,6,4,.88);padding:6px 12px;backdrop-filter:blur(6px);">${p.tag}</div>`:''}
+      </div>
+      <div style="display:flex;gap:3px;">${thumbH}</div>
+    </div>
+    <div class="fu d2" style="padding-top:10px;">
+      <p style="font-size:.56rem;letter-spacing:.34em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;">${coll.name}</p>
+      <h1 style="font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,3.5vw,3.5rem);font-weight:300;color:var(--ivory);line-height:1.05;margin-bottom:12px;">${p.name}</h1>
+      <p style="font-size:.67rem;letter-spacing:.14em;text-transform:uppercase;color:var(--grey);margin-bottom:20px;">${p.sub}</p>
+      <div style="width:40px;height:1px;background:var(--gold);opacity:.5;margin-bottom:24px;"></div>
+      <p style="font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-style:italic;color:var(--grey);margin-bottom:32px;line-height:1.85;">${p.desc}</p>
+      <div style="padding:22px 24px;background:rgba(198,169,107,.04);border:1px solid rgba(198,169,107,.12);margin-bottom:32px;">
+        <p style="font-size:.54rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;">Pricing</p>
+        <p style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:300;color:var(--ivory);">Price on Application</p>
+        <p style="font-size:.63rem;color:var(--grey);margin-top:6px;line-height:1.7;">Contact us for a personalised quotation. All prices include VAT where applicable.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:36px;">
+        <button class="btn-g" style="justify-content:center;" onclick="navigate('contact')">Enquire About This Piece <svg width="13" height="9" viewBox="0 0 13 9" fill="none"><path d="M1 4.5H12M8.5 1L12 4.5L8.5 8" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <button class="btn-o" style="justify-content:center;" onclick="showToast()">Add to Wishlist</button>
+      </div>
+      <div>
+        ${acc('Details & Specification',`Available for private viewing at our Wilmslow showroom. All jewellery is hallmarked in accordance with UK law. A certificate of authenticity accompanies every piece.<br/><br/><strong style="color:var(--ivory);font-weight:400;">Specification:</strong> ${p.sub}<br/><br/>Every item is individually inspected by our master goldsmith before collection or dispatch.`)}
+        ${acc('Delivery & Returns','Complimentary insured delivery on all pieces. Dispatched in our signature box with certificate of authenticity enclosed.<br/><br/>Returns accepted within 14 days for unworn items in original condition. Bespoke and personalised commissions are non-returnable.')}
+        ${acc('Bespoke & Customisation','We offer a full bespoke customisation service — choice of metal, gemstone grade, and setting style. Contact our team to arrange a private consultation at our Wilmslow showroom. Commissions from 6 weeks.')}
+        ${acc('Care & Cleaning','We offer a complimentary annual inspection and cleaning service at our showroom. At home, clean gently with warm soapy water and a soft brush, and store in the provided box away from other pieces.')}
+      </div>
+    </div>`;
+
+  document.getElementById('product-related-title').innerHTML=`More from <em style="font-style:italic;color:var(--gold);">${coll.name}</em>`;
+  document.getElementById('product-related-btn').onclick=()=>navigate('listing',collId);
+  document.getElementById('product-related').innerHTML=related.map((r,i)=>prodCard(r,collId,i)).join('');
+}
+
+function acc(title,content){
+  const id='a'+Math.random().toString(36).slice(2,6);
+  return `<div class="acc-item"><button class="acc-trigger" onclick="tA('${id}')"><span class="acc-label">${title}</span><span class="acc-icon" id="ic${id}">+</span></button><div class="acc-body" id="${id}"><div class="acc-inner">${content}</div></div></div>`;
+}
+function tA(id){document.getElementById(id).classList.toggle('open');document.getElementById('ic'+id).classList.toggle('open');}
+function selThumb(n,src){
+  document.querySelectorAll('.thumb').forEach((t,i)=>t.classList.toggle('active',i===n));
+  const img=document.getElementById('prod-main-img');
+  if(img&&src){img.src=src;img.style.transform=n>0?'scale(1.025)':'scale(1)';}
+}
+
+/* ═══════════════════════════════════════════════════
+   CONTACT
+═══════════════════════════════════════════════════ */
+function submitForm(e){
+  e.preventDefault();
+  const btn=document.getElementById('contact-submit');
+  btn.innerHTML='<span style="display:flex;align-items:center;gap:10px;"><span style="width:12px;height:12px;border:1px solid rgba(13,13,13,.4);border-top-color:var(--black);border-radius:50%;display:inline-block;animation:spin .7s linear infinite;"></span>Sending…</span>';
+  btn.disabled=true;
+  setTimeout(()=>{document.getElementById('contact-form').style.display='none';document.getElementById('contact-success').style.display='block';},1400);
+}
+
+function showToast(){
+  const t=document.getElementById('toast');
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),3000);
+}
+
+/* ═══════════════════════════════════════════════════
+   SCROLL REVEAL
+═══════════════════════════════════════════════════ */
+function initReveal(){
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');obs.unobserve(e.target);}});
+  },{threshold:.07});
+  document.querySelectorAll('.rv:not(.on)').forEach(el=>obs.observe(el));
+}
+
+/* ═══════════════════════════════════════════════════
+   CURSOR
+═══════════════════════════════════════════════════ */
+(function(){
+  const c=document.getElementById('cur'),r=document.getElementById('curR');
+  let mx=0,my=0,rx=0,ry=0;
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;c.style.left=mx+'px';c.style.top=my+'px';});
+  (function tick(){rx+=(mx-rx)*.11;ry+=(my-ry)*.11;r.style.left=rx+'px';r.style.top=ry+'px';requestAnimationFrame(tick);})();
+  const sel='a,button,.col-card,.prod-card,.thumb,.stat-box,.testi,.other-coll-btn,.pg-btn';
+  document.addEventListener('mouseover',e=>{
+    const h=!!e.target.closest(sel);
+    c.classList.toggle('h',h); r.classList.toggle('h',h);
+  });
+})();
+
+/* NAV */
+window.addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('scrolled',scrollY>50);});
+
+/* ═══════════════════════════════════════════════════
+   INIT
+═══════════════════════════════════════════════════ */
+buildMarquee();
+buildHomeWatches();
+buildCollectionsGrid();
+buildFooterCollections();
+document.querySelector('[data-page="home"]').classList.add('active');
+setTimeout(initReveal,100);
+</script>
+</body>
+</html>
